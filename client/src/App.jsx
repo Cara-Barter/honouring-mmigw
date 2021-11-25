@@ -6,6 +6,8 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import EventRegistration from './pages/EventRegistration/EventRegistration';
 import HonouringMMIWG from './pages/HonouringMMIWG/HonouringMMIWG';
+import NotFound from './pages/NotFound/NotFound';
+import Footer from './components/Footer/Footer';
 
 function App() {
   // console.log('in app');
@@ -27,7 +29,8 @@ function App() {
           )}
           />
           <Route component={NotFound} />
-        </Switch> 
+        </Switch>
+        <Footer />
       </div>
     </Router>
   );

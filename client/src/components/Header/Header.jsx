@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import './Header.scss';
 
 import logo from '../../assets/logo/ttll-logo.png';
 
@@ -12,19 +13,19 @@ function Header() {
                 <nav className='header__nav'>
                     <ul className='header__nav-list'>
                         <li className='header__nav-item'>
-                            <Link to='/' className='header__nav-link'>
+                            <NavLink to='/' className='header__nav-link'>
                                 Home
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className='header__nav-item'>
-                            <Link to='/event' className='header__nav-link'>
-                                60 x 60 Event
-                            </Link>
+                            <NavLink to='/event' className='header__nav-link'>
+                                Event Registration
+                            </NavLink>
                         </li>
                         <li className='header__nav-item'>
-                            <Link to='/honouring' className='header__nav-link'>
+                            <NavLink to='/honouring' className='header__nav-link'>
                                 Honouring MMIWG Loved One
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>  
                 </nav>
