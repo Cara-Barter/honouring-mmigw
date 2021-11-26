@@ -114,21 +114,19 @@ class EventRegistration extends Component {
     console.log("hello", newParticipant);
 
     if (this.isFormValid()) {
-    //   axios
-    //     .post(`${process.env.REACT_APP_API_URL}/register/`, newParticipant)
-    //     .then((response) => {
-    //       this.setState({
-    //         register: response.data,
-    //       });
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/register/`, newParticipant)
+        .then((response) => {
+          this.setState({
+            register: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       alert("registration successful");
       this.setState({ isRedirecting: true });
-    } else {
-      alert("failed to upload, please check for errors in your form");
-    }
+    } 
   };
 
   render() {
@@ -152,6 +150,13 @@ class EventRegistration extends Component {
                 value={this.state.firstName}
                 placeholder="First Name"
             />
+            {this.state.nameRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
             <input
                 className={`event__input ${
                     this.state.nameRequired ? "event__input--invalid" : ""
@@ -162,6 +167,13 @@ class EventRegistration extends Component {
                 value={this.state.lastName}
                 placeholder="Last Name"
             />
+            {this.state.nameRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
 
             <label className="event__label">
                 Email<span className="event__star">*</span>
@@ -176,6 +188,13 @@ class EventRegistration extends Component {
                 value={this.state.email}
                 placeholder="email"
             />
+            {this.state.emailRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
 
             <label className="event__label">
                 Address<span className="event__star">*</span>
@@ -190,6 +209,13 @@ class EventRegistration extends Component {
                 value={this.state.address1}
                 placeholder="street address"
             />
+            {this.state.addressRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
             <input
                 className='event__input' 
                 type="text"
@@ -208,6 +234,13 @@ class EventRegistration extends Component {
                 value={this.state.city}
                 placeholder="city"
             />
+            {this.state.addressRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
             <input
                 className={`event__input ${
                     this.state.addressRequired ? "event__input--invalid" : ""
@@ -218,6 +251,13 @@ class EventRegistration extends Component {
                 value={this.state.province}
                 placeholder="province"
             />
+            {this.state.addressRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
             <input
                 className={`event__input ${
                     this.state.addressRequired ? "event__input--invalid" : ""
@@ -228,6 +268,13 @@ class EventRegistration extends Component {
                 value={this.state.postalCode}
                 placeholder="postal code"
             />
+            {this.state.addressRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
             <input
                 className={`event__input ${
                     this.state.addressRequired ? "event__input--invalid" : ""
@@ -238,6 +285,13 @@ class EventRegistration extends Component {
                 value={this.state.country}
                 placeholder="country"
             />
+            {this.state.addressRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
 
             <label className="event__label">
                 Phone Number<span className="event__star">*</span>
@@ -252,6 +306,13 @@ class EventRegistration extends Component {
                 value={this.state.phone}
                 placeholder="area code"
             />
+            {this.state.phoneRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
 
             <label className="event__label">
                 Nation
@@ -319,6 +380,13 @@ class EventRegistration extends Component {
                     onChange={this.handleChange}
                     value="60+"
                 /> 60+
+                {this.state.ageRequired && (
+                <div className='event__error-container'>
+                    <p className='event__error-text'>
+                        This field is required
+                    </p>
+                </div>
+            )}
             </div>
             <label className="event__label">
                 Survivor
@@ -339,13 +407,13 @@ class EventRegistration extends Component {
                 <option value='MMIWG Family Member'>MMIWG Family Member</option>
             </select>
 
-            <label className={`event__input ${
-                    this.state.shirtRequired ? "event__input--invalid" : ""
-                }`}>
-                Shirt Size
+            <label className='event__label'>
+                Shirt Size<span className="event__star">*</span>
             </label>
             <select
-                className='event__input'
+                className={`event__input ${
+                    this.state.shirtRequired ? "event__input--invalid" : ""
+                }`}
                 type='text'
                 name="shirtSize"
                 id="shirtSize"
@@ -369,7 +437,6 @@ class EventRegistration extends Component {
                 <button 
                     className='event__btn'
                     type='submit'
-                    disabled={!this.isFormValid()}
                 >
                     Submit
                 </button>

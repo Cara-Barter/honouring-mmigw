@@ -1,25 +1,36 @@
 @use '../../styles/partials/variables' as *;
 
 .event {
-
+    width: 95%;
+    margin: 0 auto;
     &__title {
         font-weight: 600;
+        font-size: 1.25rem;
     }
     &__form {
         display: flex;
         flex-direction: column;
     }
     &__label {
-        padding-bottom: 4px;
+        padding-bottom: 3px;
+        font-size: .75rem;
     }
     &__star {
         color: $color-red-highlight;
     }
     &__input {
         padding: .25rem;
-        margin: .25rem;
+        margin-bottom: .25rem;
+        background-color: $color-background-highlight;
+        border-radius: 5px;
+        font-size: .75rem;
+        &:focus {
+            outline: none;
+            border: 1px solid $color-blue-hightlight;
+        }
         &--invalid {
-
+            outline: none;
+            border: 1px solid $color-red-highlight;
         }
     }
 }
