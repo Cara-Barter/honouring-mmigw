@@ -1,0 +1,25 @@
+@use '../../styles/partials/variables' as *;
+
+.event {
+
+    &__title {
+        font-weight: 600;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__label {
+        padding-bottom: 4px;
+    }
+    &__star {
+        color: $color-red-highlight;
+    }
+    &__input {
+        padding: .25rem;
+        margin: .25rem;
+        &--invalid {
+
+        }
+    }
+}

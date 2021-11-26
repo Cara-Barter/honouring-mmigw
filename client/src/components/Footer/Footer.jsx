@@ -14,6 +14,7 @@ function Footer() {
       <a
         href="https://tsowtunlelum.org"
         target="_blank"
+        rel="noreferrer"
         className="footer__link"
       >
         <p className="footer__text">tsowtunlelum.org</p>
