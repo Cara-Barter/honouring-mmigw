@@ -17,7 +17,7 @@ class EventRegistration extends Component {
     country: "",
     postalCode: "",
     nation: "",
-    walkingFor: "",
+    dedicate: "",
     gender: "",
     age: null,
     survivor: null,
@@ -105,7 +105,7 @@ class EventRegistration extends Component {
       country: this.state.country,
       postalCode: this.state.postalCode,
       nation: this.state.nation,
-      walkingFor: this.state.walkingFor,
+      dedicate: this.state.dedicate,
       gender: this.state.gender,
       age: this.state.age,
       survivor: this.state.survivor,
@@ -327,18 +327,6 @@ class EventRegistration extends Component {
             />
 
             <label className="event__label">
-                Dedication
-            </label>
-            <input
-                className='event__input'
-                type="text"
-                name="walkingFor"
-                onChange={this.handleChange}
-                value={this.state.walkingFor}
-                placeholder="Is there someone you're dedicating your walk to?"
-            />
-
-            <label className="event__label">
                 Gender
             </label>
             <input
@@ -406,6 +394,18 @@ class EventRegistration extends Component {
                 <option value='MMIWG Survivor'>MMIWG Survivor</option>
                 <option value='MMIWG Family Member'>MMIWG Family Member</option>
             </select>
+
+            <label className="event__label">
+                Dedication
+            </label>
+            <input
+                className='event__input'
+                type="text"
+                name="dedicate"
+                onChange={this.handleChange}
+                value={this.state.dedicate}
+                placeholder="Is there someone you're dedicating your walk to?"
+            />
 
             <label className='event__label'>
                 Shirt Size<span className="event__star">*</span>
