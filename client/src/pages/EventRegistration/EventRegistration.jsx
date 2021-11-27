@@ -115,8 +115,9 @@ class EventRegistration extends Component {
 
     if (this.isFormValid()) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}/register/`, newParticipant)
+        .post(`${process.env.REACT_APP_API_URL}/participants/`, newParticipant)
         .then((response) => {
+            console.log(response);
           this.setState({
             register: response.data,
           });

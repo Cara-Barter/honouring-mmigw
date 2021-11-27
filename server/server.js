@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
+const cors = require('cors');
 const participantsRoutes = require('./routes/participants')
-const { PORT } = process.env.PORT || 5000;
+const { PORT } = process.env || 5000;
 
 //add middleware
 app.use(express.json());
+app.use(cors());
 app.use(express.static('public'));
 
 //use routes
