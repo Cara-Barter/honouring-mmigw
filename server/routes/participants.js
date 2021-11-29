@@ -18,14 +18,15 @@ router.get('/', (req, res) => {
 //get participants by id
 router.get('/:id', (req, res) => {
     knex('participants')
-        .where({ id: req.params.id })
+        .join('adtlInfo', 'adtlInfo.participants_id', 'participants.id')
+        .where({ participants_id: req.params.id })
         .then((data) => {
             if(!data.length) {
                 res.status(404).json({
                     message: `participant not found with the id ${req.params.id}`
                 });
             } else {
-                res.status(200).json(data[0]);
+                res.status(200).json(data);
             }
         })
         .catch(() => {
@@ -44,17 +45,18 @@ router.post('/', (req, res) => {
 //     return;
 //   }
   //if req.body.name is provided create a new participant
-  knex('participants', 'adtlInfo')
+  knex('participants')
+    // .join('adtlInfo', 'adtlInfo.participants_id', 'participants.id')
     .insert(req.body)
     .then((data) => {
         console.log(data);
         res.status(201).json({
-            message: `Participant ${req.body.name} created successfully with the id ${data}`
+            message: `Participant ${req.body.firstName} created successfully with the id ${data}`
         });
     })
     .catch( () => {
         res.status(400).json({
-            message: `Error creating participant ${req.body.name}`
+            message: `Error creating participant ${req.body.firstName}`
         });
     });
 });

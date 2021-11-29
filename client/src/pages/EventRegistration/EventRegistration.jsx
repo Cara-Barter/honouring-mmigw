@@ -1,4 +1,5 @@
 import "./EventRegistration.scss";
+import handleChange from "../../components/Utility/handleChange";
 import { Component } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
@@ -31,15 +32,15 @@ class EventRegistration extends Component {
     shirtRequired: false,
   };
 
-  // create change handler for all inputs
-  handleChange = (e) => {
-    //   console.log('in handlechange', e.target.name, e.target.value);
-    const eRequired = e.target.name + "Required";
-    this.setState({
-      [e.target.name]: e.target.value,
-      [eRequired]: false,
-    });
-  };
+//   // create change handler for all inputs
+//   handleChange = (e) => {
+//     //   console.log('in handlechange', e.target.name, e.target.value);
+//     const eRequired = e.target.name + "Required";
+//     this.setState({
+//       [e.target.name]: e.target.value,
+//       [eRequired]: false,
+//     });
+//   };
 
   isFormValid = () => {
     // check if all required fields are filled
@@ -147,7 +148,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="firstName"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.firstName}
                 placeholder="First Name"
             />
@@ -164,7 +165,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="lastName"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.lastName}
                 placeholder="Last Name"
             />
@@ -185,7 +186,7 @@ class EventRegistration extends Component {
                 }`}
                 type="email"
                 name="email"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.email}
                 placeholder="email"
             />
@@ -206,7 +207,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="address1"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.address1}
                 placeholder="street address"
             />
@@ -221,7 +222,7 @@ class EventRegistration extends Component {
                 className='event__input' 
                 type="text"
                 name="address2"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.address2}
                 placeholder="apt, suite, etc"
             />
@@ -231,7 +232,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="city"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.city}
                 placeholder="city"
             />
@@ -248,7 +249,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="province"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.province}
                 placeholder="province"
             />
@@ -265,7 +266,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="postalCode"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.postalCode}
                 placeholder="postal code"
             />
@@ -282,7 +283,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="country"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.country}
                 placeholder="country"
             />
@@ -303,7 +304,7 @@ class EventRegistration extends Component {
                 }`}
                 type="number"
                 name="phone"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.phone}
                 placeholder="area code"
             />
@@ -322,7 +323,7 @@ class EventRegistration extends Component {
                 className='event__input' 
                 type="text"
                 name="nation"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.nation}
                 placeholder="Nation"
             />
@@ -334,7 +335,7 @@ class EventRegistration extends Component {
                 className='event__input'
                 type="text"
                 name="gender"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.gender}
                 placeholder="gender"
             />
@@ -348,7 +349,7 @@ class EventRegistration extends Component {
                     }`}
                     type="radio"
                     name="age"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     value="0-19"
                 /> 0-19
                 <input
@@ -357,7 +358,7 @@ class EventRegistration extends Component {
                     }`}
                     type="radio"
                     name="age"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     value="20-59"
                 /> 20-59
                 <input
@@ -366,7 +367,7 @@ class EventRegistration extends Component {
                     }`}
                     type="radio"
                     name="age"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                     value="60+"
                 /> 60+
                 {this.state.ageRequired && (
@@ -385,7 +386,7 @@ class EventRegistration extends Component {
                 type='text'
                 name="survivor"
                 id="survivor"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 defaultValue=''
             >
                 <option value='' disabled>Please Select</option>
@@ -403,7 +404,7 @@ class EventRegistration extends Component {
                 className='event__input'
                 type="text"
                 name="dedicate"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 value={this.state.dedicate}
                 placeholder="Is there someone you're dedicating your walk to?"
             />
@@ -418,7 +419,7 @@ class EventRegistration extends Component {
                 type='text'
                 name="shirtSize"
                 id="shirtSize"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 defaultValue=''
             >
                 <option value='' disabled>Please Select</option>
