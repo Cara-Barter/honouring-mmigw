@@ -9,38 +9,37 @@ class EventRegistration extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
-    organization: "",
     address1: "",
     address2: "",
     city: "",
     province: "",
-    country: "",
     postalCode: "",
-    nation: "",
-    dedicate: "",
+    country: "",
+    nation: "", 
     gender: "",
-    age: null,
     survivor: null,
+    age: null,
+    dedicate: "",
     shirtSize: null,
+    phone: "",
+    organization: "",
     isRedirecting: false,
     nameRequired: false,
     emailRequired: false,
     addressRequired: false,
-    phoneRequired: false,
     ageRequired: false,
     shirtRequired: false,
   };
 
-//   // create change handler for all inputs
-//   handleChange = (e) => {
-//     //   console.log('in handlechange', e.target.name, e.target.value);
-//     const eRequired = e.target.name + "Required";
-//     this.setState({
-//       [e.target.name]: e.target.value,
-//       [eRequired]: false,
-//     });
-//   };
+  // create change handler for all inputs
+  handleChange = (e) => {
+    //   console.log('in handlechange', e.target.name, e.target.value);
+    const eRequired = e.target.name + "Required";
+    this.setState({
+      [e.target.name]: e.target.value,
+      [eRequired]: false,
+    });
+  };
 
   isFormValid = () => {
     // check if all required fields are filled
@@ -97,20 +96,20 @@ class EventRegistration extends Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       email: this.state.email,
-      phone: this.state.phone,
-      organization: this.state.organization,
       address1: this.state.address1,
       address2: this.state.address2,
       city: this.state.city,
       province: this.state.province,
+      postalCode: this.state.postalCode, 
       country: this.state.country,
-      postalCode: this.state.postalCode,
-      nation: this.state.nation,
-      dedicate: this.state.dedicate,
+      nation: this.state.nation, 
       gender: this.state.gender,
-      age: this.state.age,
       survivor: this.state.survivor,
-      shirtSize: this.state.shirtSize,
+      age: this.state.age,
+      dedicate: this.state.dedicate,  
+      shirtSize: this.state.shirtSize,     
+      phone: this.state.phone,
+      organization: this.state.organization
     };
     console.log("hello", newParticipant);
 
@@ -148,7 +147,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="firstName"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.firstName}
                 placeholder="First Name"
             />
@@ -165,7 +164,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="lastName"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.lastName}
                 placeholder="Last Name"
             />
@@ -186,7 +185,7 @@ class EventRegistration extends Component {
                 }`}
                 type="email"
                 name="email"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.email}
                 placeholder="email"
             />
@@ -207,7 +206,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="address1"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.address1}
                 placeholder="street address"
             />
@@ -222,7 +221,7 @@ class EventRegistration extends Component {
                 className='event__input' 
                 type="text"
                 name="address2"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.address2}
                 placeholder="apt, suite, etc"
             />
@@ -232,7 +231,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="city"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.city}
                 placeholder="city"
             />
@@ -249,7 +248,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="province"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.province}
                 placeholder="province"
             />
@@ -266,7 +265,7 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="postalCode"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.postalCode}
                 placeholder="postal code"
             />
@@ -283,32 +282,11 @@ class EventRegistration extends Component {
                 }`}
                 type="text"
                 name="country"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.country}
                 placeholder="country"
             />
             {this.state.addressRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-
-            <label className="event__label">
-                Phone Number<span className="event__star">*</span>
-            </label>
-            <input
-                className={`event__input ${
-                    this.state.phoneRequired ? "event__input--invalid" : ""
-                }`}
-                type="number"
-                name="phone"
-                onChange={handleChange}
-                value={this.state.phone}
-                placeholder="area code"
-            />
-            {this.state.phoneRequired && (
                 <div className='event__error-container'>
                     <p className='event__error-text'>
                         This field is required
@@ -323,7 +301,7 @@ class EventRegistration extends Component {
                 className='event__input' 
                 type="text"
                 name="nation"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.nation}
                 placeholder="Nation"
             />
@@ -335,11 +313,51 @@ class EventRegistration extends Component {
                 className='event__input'
                 type="text"
                 name="gender"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.gender}
                 placeholder="gender"
             />
-            <div className='event__wrapper'>
+
+            <label className="event__label">
+                Survivor
+            </label>
+            <select
+                className='event__input'
+                type='text'
+                name="survivor"
+                id="survivor"
+                onChange={this.handleChange}
+                defaultValue={this.state.survivor}
+            >
+                <option value='Supporter'>Supporter</option>
+                <option value='Residential School Survivor'>Residential School Survivor</option>
+                <option value='Day School Survivor'>Day School Survivor</option>
+                <option value='Intergenerational Survivor'>Intergenerational Survivor</option>
+                <option value='MMIWG Survivor'>MMIWG Survivor</option>
+                <option value='MMIWG Family Member'>MMIWG Family Member</option>
+            </select>   
+
+            <label className="event__label">
+                    Age<span className="event__star">*</span>
+            </label>
+            <select
+                className={`event__input ${
+                    this.state.ageRequired ? "event__input--invalid" : ""
+                }`}
+                type='text'
+                name="age"
+                id="age"
+                onChange={this.handleChange}
+                defaultValue={this.state.age}
+            >
+                <option value='0-19'>0-19</option>
+                <option value='20-39'>20-39</option>
+                <option value='40-59'>40-59</option>
+                <option value='60-74'>60-74</option>
+                <option value='75+'>75+</option>
+            </select>   
+
+            {/* <div className='event__wrapper'>
                 <label className="event__label">
                     Age<span className="event__star">*</span>
                 </label>
@@ -349,8 +367,8 @@ class EventRegistration extends Component {
                     }`}
                     type="radio"
                     name="age"
-                    onChange={handleChange}
-                    value="0-19"
+                    onChange={this.handleChange}
+                    value={this.state.age}
                 /> 0-19
                 <input
                     className={`event__input ${
@@ -358,7 +376,7 @@ class EventRegistration extends Component {
                     }`}
                     type="radio"
                     name="age"
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     value="20-59"
                 /> 20-59
                 <input
@@ -367,7 +385,7 @@ class EventRegistration extends Component {
                     }`}
                     type="radio"
                     name="age"
-                    onChange={handleChange}
+                    onChange={this.handleChange}
                     value="60+"
                 /> 60+
                 {this.state.ageRequired && (
@@ -377,25 +395,7 @@ class EventRegistration extends Component {
                     </p>
                 </div>
             )}
-            </div>
-            <label className="event__label">
-                Survivor
-            </label>
-            <select
-                className='event__input'
-                type='text'
-                name="survivor"
-                id="survivor"
-                onChange={handleChange}
-                defaultValue=''
-            >
-                <option value='' disabled>Please Select</option>
-                <option value='Residential School Survivor'>Residential School Survivor</option>
-                <option value='Day School Survivor'>Day School Survivor</option>
-                <option value='Intergenerational Survivor'>Intergenerational Survivor</option>
-                <option value='MMIWG Survivor'>MMIWG Survivor</option>
-                <option value='MMIWG Family Member'>MMIWG Family Member</option>
-            </select>
+            </div> */}
 
             <label className="event__label">
                 Dedication
@@ -404,7 +404,7 @@ class EventRegistration extends Component {
                 className='event__input'
                 type="text"
                 name="dedicate"
-                onChange={handleChange}
+                onChange={this.handleChange}
                 value={this.state.dedicate}
                 placeholder="Is there someone you're dedicating your walk to?"
             />
@@ -419,10 +419,10 @@ class EventRegistration extends Component {
                 type='text'
                 name="shirtSize"
                 id="shirtSize"
-                onChange={handleChange}
-                defaultValue=''
+                onChange={this.handleChange}
+                defaultValue={this.state.shirtSize}
             >
-                <option value='' disabled>Please Select</option>
+                
                 <option value='Small'>Small</option>
                 <option value='Medium'>Medium</option>
                 <option value='Large'>Large</option>
@@ -430,6 +430,32 @@ class EventRegistration extends Component {
                 <option value='XXL'>XXL</option>
                 <option value='XXXL'>XXXL</option>
             </select>
+
+            <label className="event__label">
+                Phone Number
+            </label>
+            <input
+                className='event__input'
+                type="text"
+                name="phone"
+                onChange={this.handleChange}
+                value={this.state.phone}
+                placeholder="phone"
+            />
+
+            <label className="event__label">
+                Organization
+            </label>
+            <input
+                className='event__input' 
+                type="text"
+                name="organization"
+                onChange={this.handleChange}
+                value={this.state.organization}
+                placeholder="Organization"
+            />
+
+
             <div className='event__btns'>
                 <Link to='/' className='event__link'>
                     <button className='event__btn'>

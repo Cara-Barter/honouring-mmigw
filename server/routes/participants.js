@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 //get participants by id
 router.get('/:id', (req, res) => {
     knex('participants')
-        .join('adtlInfo', 'adtlInfo.participants_id', 'participants.id')
+        .join('extra_info', 'extra_info.participants_id', 'participants.id')
         .where({ participants_id: req.params.id })
         .then((data) => {
             if(!data.length) {
@@ -44,15 +44,42 @@ router.post('/', (req, res) => {
 //     res.status(400).json({ message: `Please provide a name for the participant` });
 //     return;
 //   }
+    const participantInfo = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      address1: req.body.address1,
+      address2: req.body.address2,
+      city: req.body.city,
+      province: req.body.province,
+      postalCode: req.body.postalCode,
+      country: req.body.country,
+      nation: req.body.nation,
+      gender: req.body.gender,
+      survivor: req.body.survivor
+    }
+
+    const extraInfo = {
+      age: req.body.age,
+      dedicate: req.body.dedicate,
+      shirtSize: req.body.shirtSize,
+      phone: req.body.phone,
+      organization: req.body.organization
+    }
+
   //if req.body.name is provided create a new participant
   knex('participants')
-    // .join('adtlInfo', 'adtlInfo.participants_id', 'participants.id')
-    .insert(req.body)
+    .insert(participantInfo)
     .then((data) => {
         console.log(data);
-        res.status(201).json({
-            message: `Participant ${req.body.firstName} created successfully with the id ${data}`
-        });
+        extraInfo.participant_id = data[0];
+        return knex('extra_info')
+        .insert(extraInfo)
+    }).then((data) => {
+      console.log(data[0]);
+      res.status(201).json({
+          message: `Participant ${req.body.firstName} created successfully with the id ${data}`
+      });
     })
     .catch( () => {
         res.status(400).json({

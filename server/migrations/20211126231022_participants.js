@@ -15,9 +15,9 @@ exports.up = function(knex) {
     table.string('gender');
     table.string('survivor');
     table.timestamp('updated_at').defaultTo(knex.fn.now());
-  }).createTable('adtlInfo', function (table) {
+  }).createTable('extra_info', function (table) {
       table.increments('id');  
-      table.integer('age').unsigned().notNullable();
+      table.string('age').notNullable();
       table.string('dedicate', 75);
       table.string('shirtSize');
       table.string('phone');
@@ -35,5 +35,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('adtlInfo').dropTable('participants')
+  return knex.schema.dropTable('extra_info').dropTable('participants')
 };

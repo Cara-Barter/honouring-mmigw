@@ -31,7 +31,7 @@ const participantsData = [
   },
 ]
 
-const adtlInfoData = [
+const extraData = [
   {
     id: 1,
     age: 42,
@@ -58,8 +58,8 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('participants').insert(participantsData);
     }).then(function(){
-      return knex('adtlInfo').del();
+      return knex('extra_info').del();
     }).then(function() {
-      return knex('adtlInfo').insert(adtlInfoData);
+      return knex('extra_info').insert(extraData);
     });
 };

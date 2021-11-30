@@ -12,9 +12,12 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
+    "dev": "npx nodemon index.js",
     "migrate": "knex migrate:latest",
-    "seed": "knex seed:run",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "keywords": [],
   "author": "",
