@@ -1,5 +1,5 @@
 import "./EventRegistration.scss";
-import handleChange from "../../components/Utility/handleChange";
+import Button from "../../components/Button/Button";
 import { Component } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
@@ -92,6 +92,7 @@ class EventRegistration extends Component {
         shirtRequired: true,
       });
     }
+    
     const newParticipant = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -455,19 +456,18 @@ class EventRegistration extends Component {
                 placeholder="Organization"
             />
 
-
             <div className='event__btns'>
                 <Link to='/' className='event__link'>
-                    <button className='event__btn'>
-                        Cancel
-                    </button>
+                    <Button 
+                        className='event__btn'
+                        text='Cancel'
+                    />
                 </Link>
-                <button 
+                <Button 
                     className='event__btn'
                     type='submit'
-                >
-                    Submit
-                </button>
+                    text='Submit'
+                />
             </div>
         </form>
       </article>
