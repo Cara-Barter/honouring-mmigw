@@ -13,9 +13,8 @@ function ParticipantList ({ participants }) {
                         return (
                         <li 
                                 className="participants__item"
-                                key={participants.id}>
-                                <Participant {...participant} />
-
+                                key={participant.id}>
+                                <Participant participant={participant} />
                         </li> 
                         );
                     }

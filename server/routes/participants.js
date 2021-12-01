@@ -17,9 +17,9 @@ router.get('/', (req, res) => {
 
 //get participants by id
 router.get('/:id', (req, res) => {
-    knex('participants')
-        .join('extra_info', 'extra_info.participants_id', 'participants.id')
-        .where({ participants_id: req.params.id })
+    knex.from('participants as p')
+        .innerJoin('extra_info as e', 'e.participant_id', 'p.id')
+        .where('p.id', req.params.id)
         .then((data) => {
             if(!data.length) {
                 res.status(404).json({
