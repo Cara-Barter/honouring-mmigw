@@ -22,7 +22,7 @@ class HonouringMMIWG extends Component {
     //   console.log('in handlechange', e.target.name, e.target.value);
         const eRequired = e.target.name + "Required";
         this.setState({
-        [e.target.name[0]]: e.target.value,
+        [e.target.name]: e.target.value,
         [eRequired]: false,
         });
     };
@@ -55,7 +55,7 @@ class HonouringMMIWG extends Component {
         yourName: this.state.yourName,
         lovedOnesName: this.state.lovedOnesName,
         nation: this.state.nation,
-        gender: this.state.nation,
+        gender: this.state.gender,
         community: this.state.community,
         relationship: this.state.relationship,
     }
@@ -66,16 +66,16 @@ class HonouringMMIWG extends Component {
             .post(`${process.env.REACT_APP_API_URL}/honouring/`, newHonour)
             .then((response) => {
                 console.log(response);
-            this.setState({
-                register: response.data,
-            });
+                this.setState({
+                    register: response.data,
+                    isRedirecting: true
+                }); 
+                alert("registration successful");
             })
             .catch((error) => {
-            console.log(error);
-            });
-            alert("registration successful");
-            this.setState({ isRedirecting: true });
-        } 
+                console.log(error); 
+            });   
+    } 
     };
 
     render () {
@@ -88,12 +88,13 @@ class HonouringMMIWG extends Component {
                 <section className="honour__wrapper">
 
                     <form onSubmit={this.handleSubmit} className="honour__form">
-                        <label className="event__label">
-                            Your Name<span className="event__star">*</span>
+                        
+                        <label className="honour__label">
+                            Your Name<span className="honour__star">*</span>
                         </label>
                         <input
-                            className={`event__input ${
-                                this.state.nameRequired ? "event__input--invalid" : ""
+                            className={`honour__input ${
+                                this.state.nameRequired ? "honour__input--invalid" : ""
                             }`}
                             type="text"
                             name="yourName"

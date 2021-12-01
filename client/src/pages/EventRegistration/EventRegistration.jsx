@@ -121,13 +121,13 @@ class EventRegistration extends Component {
             console.log(response);
           this.setState({
             register: response.data,
+            isRedirecting: true
           });
+          alert("registration successful");
         })
         .catch((error) => {
           console.log(error);
         });
-      alert("registration successful");
-      this.setState({ isRedirecting: true });
     } 
   };
 
@@ -139,6 +139,7 @@ class EventRegistration extends Component {
       <article className="event">
         <h1 className="event__title">Honouring MMIGW Event Registration</h1>
         <form className="event__form" onSubmit={this.handleSubmit}>
+            
             <label className="event__label">
                 Name<span className="event__star">*</span>
             </label>
