@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import EventRegistration from './pages/EventRegistration/EventRegistration';
 import HonouringMMIWG from './pages/HonouringMMIWG/HonouringMMIWG';
+import Admin from './pages/Admin/Admin';
 import NotFound from './pages/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
 
@@ -26,6 +27,10 @@ function App() {
           />
           <Route path='/honouring' render={(routerProps) => (
             <HonouringMMIWG {...routerProps} />
+          )}
+          />
+          <Route path='/admin' render={(routerProps) => (
+            <Admin {...routerProps} />
           )}
           />
           <Route component={NotFound} />

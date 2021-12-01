@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 //use routes
 app.use('/participants', participantsRoutes);
-app.use('/honouring', honouringRoutes);
+app.use('/foodburning', honouringRoutes);
 
 //start server
 app.listen(PORT, function() {
