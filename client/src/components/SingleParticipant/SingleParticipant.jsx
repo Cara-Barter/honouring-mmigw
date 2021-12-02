@@ -3,7 +3,6 @@ import axios from 'axios';
 
 class SingleParticipant extends Component {
 
-    // const { participant } = this.props;
     state = {
         singleParticipant: null
     }
@@ -25,22 +24,11 @@ class SingleParticipant extends Component {
         this.getSingleParticipant(id);
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     const { id } = this.props.match.params;
-    //     console.log('in params id', id);
-    //     if(id) {
-    //         if(prevState.singleParticipant.id !== id) {
-    //             console.log('going to get single participant');
-    //             this.getSingleParticipant(id);
-    //         }
-    //     }
-    // }
-
     render() {
         if(!this.state.singleParticipant) {
             return <h2>loading...</h2>
         }
-        console.log(this.state.singleParticipant);
+
         return (
             <article className='single'>
                 <h2 className='single__title'>{this.state.singleParticipant.firstName }{this.state.singleParticipant.lastName}</h2>

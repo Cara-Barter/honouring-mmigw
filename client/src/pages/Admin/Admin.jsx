@@ -4,13 +4,13 @@ import { Route, Switch, Link } from 'react-router-dom';
 import './Admin.scss';
 import Button from '../../components/Button/Button';
 import ParticipantList from '../../components/ParticipantList/ParticipantList';
+import Shirts from '../../components/Shirts/Shirts';
 import SingleParticipant from '../../components/SingleParticipant/SingleParticipant';
 import FoodBurning from '../../components/FoodBurning/FoodBurning';
 
 class Admin extends Component {
     state = {
         participantsList: null,
-        // singleParticipant: {},
         honourees: []
     }
 
@@ -18,12 +18,10 @@ class Admin extends Component {
         axios
             .get(`${process.env.REACT_APP_API_URL}/participants`)
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 this.setState({
                     participantsList: response.data,
-                    // singleParticipant: response.data[0]
                 });
-                this.getSingleParticipant(response.data[0].id)
             })
             .catch((error) => console.log(error));
     }
@@ -32,7 +30,7 @@ class Admin extends Component {
         axios
             .get(`${process.env.REACT_APP_API_URL}/foodburning`)
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 this.setState({
                     honourees: response.data,
                 });
@@ -43,34 +41,11 @@ class Admin extends Component {
     componentDidMount() {
         this.getParticipants();
         this.getHonourees();
-        console.log(this.props);
+        //console.log(this.props);
     }
 
-    // getSingleParticipant = (id) => {
-    //     axios
-    //         .get(`${process.env.REACT_APP_API_URL}/participants/${id}`)
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             this.setState({
-    //                 singleParticipant: response.data[0]
-    //             });
-    //         })
-    //         .catch((error) => console.log(error));
-    // }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     const { id } = this.props.match.params;
-    //     console.log('in params id', id);
-    //     if(id) {
-    //         if(prevState.singleParticipant.id !== id) {
-    //             console.log('going to get single participant');
-    //             this.getSingleParticipant(id);
-    //         }
-    //     }
-    // }
-
     render() {
-        console.log(this.state.participantsList);
+        //console.log(this.state.participantsList);
         // console.log(this.state.singleParticipant);
         if(!this.state.participantsList) {
             return <h1>loading...</h1>
@@ -82,6 +57,12 @@ class Admin extends Component {
                         <Button 
                             classname='admin__btn'
                             text='Walk Participants'
+                        />
+                    </Link> 
+                    <Link to='/admin/shirts' className="admin__link">
+                        <Button 
+                            classname='admin__btn'
+                            text='T-Shirts List'
                         />
                     </Link> 
                     <Link to='/admin/foodburning' className="admin__link">
@@ -102,6 +83,14 @@ class Admin extends Component {
                           )}                
                     />
                     <Route 
+                        path='/admin/shirts'
+                        render={(routerProps) => (
+                            <Shirts 
+                                participants={this.state.participantsList}   
+                                {...routerProps} />
+                          )}                
+                    />
+                    <Route 
                         path='/admin/participants/:id'
                         render={(routerProps) => (
                             <SingleParticipant  
@@ -109,9 +98,13 @@ class Admin extends Component {
                           )}                
                     />
                     <Route 
-                        path='/foodburning' 
+                        path='/admin/foodburning' 
+                        render={(routerProps) => (
+                        <FoodBurning
                         honourees= {this.state.honourees}
-                        component={FoodBurning} />
+                            {...routerProps} />
+                        )}   
+                    />
                 </Switch>
                 
             </article>

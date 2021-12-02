@@ -4,7 +4,8 @@ const knex = require('knex')(require('../knexfile').development);
 
 /* Get all participants */
 router.get('/', (req, res) => {
-    knex('participants')
+    knex('participants as p')
+    .innerJoin('extra_info as e', 'e.participant_id', 'p.id')
     .then((participantData) => {
         res.status(200).json(participantData);
     })

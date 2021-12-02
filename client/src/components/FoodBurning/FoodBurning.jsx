@@ -13,8 +13,8 @@ function HonoureesList ({ honourees }) {
                         return (
                         <li 
                                 className="honourees__item"
-                                key={honourees.id}>
-                                <Honouree {...honouree} />
+                                key={honouree.id}>
+                                <Honouree honouree={honouree} />
                         </li> 
                         );
                     }
