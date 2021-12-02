@@ -29,26 +29,32 @@ class SingleParticipant extends Component {
             return <h2>loading...</h2>
         }
 
+        const { singleParticipant } = this.state;
+
         return (
             <article className='single'>
-                <h2 className='single__title'>{this.state.singleParticipant.firstName }{this.state.singleParticipant.lastName}</h2>
+                <h2 
+                    className='single__title'>
+                        {singleParticipant.firstName }
+                        {singleParticipant.lastName}
+                </h2>
                 <p className='single__details'>
-                    {this.state.singleParticipant.address1}
-                    {this.state.singleParticipant.address2}
-                    {this.state.singleParticipant.city}
-                    {this.state.singleParticipant.province}
-                    {this.state.singleParticipant.postalCode}
-                    {this.state.singleParticipant.country}
+                    {singleParticipant.address1}
+                    {singleParticipant.address2}
+                    {singleParticipant.city}
+                    {singleParticipant.province}
+                    {singleParticipant.postalCode}
+                    {singleParticipant.country}
                 </p>
-                <p className='single__details'>{this.state.singleParticipant.email}</p>
-                <p className='single__details'>{this.state.singleParticipant.phone}</p>
-                <p className='single__details'>{this.state.singleParticipant.nation}</p>
-                <p className='single__details'>{this.state.singleParticipant.age}</p>
-                <p className='single__details'>{this.state.singleParticipant.gender}</p>
-                <p className='single__details'>{this.state.singleParticipant.survivor}</p>
-                <p className='single__details'>{this.state.singleParticipant.organization}</p>
-                <p className='single__details'>{this.state.singleParticipant.id}</p>
-                <p className='single__details'>{this.state.singleParticipant.shirtSize}</p>
+                <p className='single__details'>{singleParticipant.email}</p>
+                <p className='single__details'>{singleParticipant.phone}</p>
+                <p className='single__details'>{singleParticipant.nation}</p>
+                <p className='single__details'>{singleParticipant.age}</p>
+                <p className='single__details'>{singleParticipant.gender}</p>
+                <p className='single__details'>{singleParticipant.survivor}</p>
+                <p className='single__details'>{singleParticipant.organization}</p>
+                <p className='single__details'>{singleParticipant.id}</p>
+                <p className='single__details'>{singleParticipant.shirtSize}</p>
             </article>
         )
     }
