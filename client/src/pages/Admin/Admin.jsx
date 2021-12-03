@@ -50,6 +50,9 @@ class Admin extends Component {
         if(!this.state.participantsList) {
             return <h1>loading...</h1>
         }
+        // if(!token) {
+        //    return <h2>please log in</h2>
+        // } else {
         return(
             <article className="admin">
                 <nav className="admin__nav">
@@ -64,7 +67,7 @@ class Admin extends Component {
                             classname='admin__btn'
                             text='T-Shirts List'
                         />
-                    </Link> 
+                    </Link>
                     <Link to='/admin/foodburning' className="admin__link">
                         <Button 
                             classname='admin__btn'
@@ -110,6 +113,7 @@ class Admin extends Component {
             </article>
         )
     }
-}
+    }
+// }
 
 export default Admin;

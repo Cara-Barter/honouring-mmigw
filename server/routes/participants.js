@@ -68,17 +68,20 @@ router.post('/', (req, res) => {
       organization: req.body.organization
     }
 
+  let participantId;
   //if req.body.name is provided create a new participant
   knex('participants')
     .insert(participantInfo)
     .then((data) => {
-        console.log(data);
+        console.log('participant created', data);
+        participantId = data[0];
         extraInfo.participant_id = data[0];
         return knex('extra_info')
         .insert(extraInfo)
     }).then((data) => {
-      console.log(data[0]);
+      console.log('new participant', data[0]);
       res.status(201).json({
+          id: participantId,
           message: `Participant ${req.body.firstName} created successfully with the id ${data}`
       });
     })

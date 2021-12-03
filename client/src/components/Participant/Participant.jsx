@@ -2,7 +2,7 @@ import './Participant.scss';
 import { Link } from 'react-router-dom';
 
 function Participant ({participant}) {
-    console.log(participant);
+    //console.log(participant);
     return (
         <article className='participant'>
             <h2 className='participant__title'>{participant.firstName }{participant.lastName}</h2>

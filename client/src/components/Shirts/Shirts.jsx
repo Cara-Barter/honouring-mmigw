@@ -1,26 +1,42 @@
 import './Shirts.scss';
 
 function Shirts ({ participants }) {
-    console.log(participants);
+    const shirtsNeeded = {
+        small: 0,
+        medium: 0,
+        large: 0,
+        XL: 0,
+        XXL: 0,
+        XXXL: 0
+    }
+    
+   if(participants) {
+        for (let i = 0; i < participants.length; i++) {
+            let shirt = participants[i].shirtSize;
+            switch(shirt) {
+                case 'Small': shirtsNeeded.small++; break;
+                case 'Medium': shirtsNeeded.medium++; break;
+                case 'Large': shirtsNeeded.large++; break;
+                case 'XL': shirtsNeeded.XL++; break;
+                case 'XXL': shirtsNeeded.XXL++; break;
+                case 'XXXL': shirtsNeeded.XXXL++; break;
+                default: shirtsNeeded.large++;
+            }
+        }
+    }
+
     return (
         <article className='shirts'>
             <h1 className="shirts__title">T-Shirt List</h1>
-            <ul className="shirts__list">
-                {participants
-                    .map((participant) => {
-                        console.log(participant)
-                        return (
-                            <li 
-                                className='shirts__item'
-                                key={participant.id}>
-                                   <p className='shirt__size'>{participant.shirtSize}</p>
-                            </li>
-                        );
-                    }
-                    )}
-            </ul>
+            <p className='shirts__text'>Small: {shirtsNeeded.small}</p>
+            <p className='shirts__text'>Medium: {shirtsNeeded.medium}</p>
+            <p className='shirts__text'>Large: {shirtsNeeded.large}</p>
+            <p className='shirts__text'>XL: {shirtsNeeded.XL}</p>
+            <p className='shirts__text'>XXL: {shirtsNeeded.XXL}</p>
+            <p className='shirts__text'>XXXL: {shirtsNeeded.XXXL}</p>
         </article>
     )
+    
 }
 
 export default Shirts;
