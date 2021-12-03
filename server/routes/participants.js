@@ -40,46 +40,62 @@ router.get('/:id', (req, res) => {
 //create new participant
 router.post('/', (req, res) => {
     console.log(req.body);
-    // if no name is provided return message asking to provide a user name
-//   if (!req.body.name) {
-//     res.status(400).json({ message: `Please provide a name for the participant` });
-//     return;
-//   }
+    
+    const { 
+      firstName, 
+      lastName, 
+      email, 
+      address1, 
+      address2, 
+      city, 
+      province, 
+      postalCode, 
+      country,
+      nation,
+      gender,
+      survivor,
+      age,
+      dedicate,
+      shirtSize,
+      phone,
+      organization
+    } = req.body;
+
     const participantInfo = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      address1: req.body.address1,
-      address2: req.body.address2,
-      city: req.body.city,
-      province: req.body.province,
-      postalCode: req.body.postalCode,
-      country: req.body.country,
-      nation: req.body.nation,
-      gender: req.body.gender,
-      survivor: req.body.survivor
+      firstName,
+      lastName,
+      email,
+      address1,
+      address2,
+      city,
+      province,
+      postalCode,
+      country,
+      nation,
+      gender,
+      survivor
     }
 
     const extraInfo = {
-      age: req.body.age,
-      dedicate: req.body.dedicate,
-      shirtSize: req.body.shirtSize,
-      phone: req.body.phone,
-      organization: req.body.organization
+      age,
+      dedicate,
+      shirtSize,
+      phone,
+      organization
     }
 
   let participantId;
-  //if req.body.name is provided create a new participant
+  
   knex('participants')
     .insert(participantInfo)
     .then((data) => {
-        console.log('participant created', data);
+        //console.log('participant created', data);
         participantId = data[0];
         extraInfo.participant_id = data[0];
         return knex('extra_info')
         .insert(extraInfo)
     }).then((data) => {
-      console.log('new participant', data[0]);
+      //console.log('new participant', data[0]);
       res.status(201).json({
           id: participantId,
           message: `Participant ${req.body.firstName} created successfully with the id ${data}`

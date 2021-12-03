@@ -329,8 +329,9 @@ class EventRegistration extends Component {
                 name="survivor"
                 id="survivor"
                 onChange={this.handleChange}
-                defaultValue={this.state.survivor}
+                defaultValue=''
             >
+                <option value=''disabled>Please Select</option>
                 <option value='Supporter'>Supporter</option>
                 <option value='Residential School Survivor'>Residential School Survivor</option>
                 <option value='Day School Survivor'>Day School Survivor</option>
@@ -350,54 +351,15 @@ class EventRegistration extends Component {
                 name="age"
                 id="age"
                 onChange={this.handleChange}
-                defaultValue={this.state.age}
+                defaultValue=''
             >
+                <option value=''disabled>Please Select</option>
                 <option value='0-19'>0-19</option>
                 <option value='20-39'>20-39</option>
                 <option value='40-59'>40-59</option>
                 <option value='60-74'>60-74</option>
                 <option value='75+'>75+</option>
             </select>   
-
-            {/* <div className='event__wrapper'>
-                <label className="event__label">
-                    Age<span className="event__star">*</span>
-                </label>
-                <input
-                    className={`event__input ${
-                        this.state.ageRequired ? "event__input--invalid" : ""
-                    }`}
-                    type="radio"
-                    name="age"
-                    onChange={this.handleChange}
-                    value={this.state.age}
-                /> 0-19
-                <input
-                    className={`event__input ${
-                        this.state.ageRequired ? "event__input--invalid" : ""
-                    }`}
-                    type="radio"
-                    name="age"
-                    onChange={this.handleChange}
-                    value="20-59"
-                /> 20-59
-                <input
-                    className={`event__input ${
-                        this.state.ageRequired ? "event__input--invalid" : ""
-                    }`}
-                    type="radio"
-                    name="age"
-                    onChange={this.handleChange}
-                    value="60+"
-                /> 60+
-                {this.state.ageRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-            </div> */}
 
             <label className="event__label">
                 Dedication
@@ -422,15 +384,16 @@ class EventRegistration extends Component {
                 name="shirtSize"
                 id="shirtSize"
                 onChange={this.handleChange}
-                defaultValue={this.state.shirtSize}
+                defaultValue=''
             >
-                
+                <option value=''disabled>Please Select</option>
                 <option value='Small'>Small</option>
                 <option value='Medium'>Medium</option>
                 <option value='Large'>Large</option>
                 <option value='XL'>XL</option>
                 <option value='XXL'>XXL</option>
                 <option value='XXXL'>XXXL</option>
+                <option value='XXXXL'>XXXL</option>
             </select>
 
             <label className="event__label">

@@ -7,7 +7,8 @@ function Shirts ({ participants }) {
         large: 0,
         XL: 0,
         XXL: 0,
-        XXXL: 0
+        XXXL: 0,
+        XXXXL: 0
     }
     
    if(participants) {
@@ -20,6 +21,7 @@ function Shirts ({ participants }) {
                 case 'XL': shirtsNeeded.XL++; break;
                 case 'XXL': shirtsNeeded.XXL++; break;
                 case 'XXXL': shirtsNeeded.XXXL++; break;
+                case 'XXXXL': shirtsNeeded.XXXXL++; break;
                 default: shirtsNeeded.large++;
             }
         }
@@ -34,6 +36,7 @@ function Shirts ({ participants }) {
             <p className='shirts__text'>XL: {shirtsNeeded.XL}</p>
             <p className='shirts__text'>XXL: {shirtsNeeded.XXL}</p>
             <p className='shirts__text'>XXXL: {shirtsNeeded.XXXL}</p>
+            <p className='shirts__text'>XXXXL: {shirtsNeeded.XXXXL}</p>
         </article>
     )
     
