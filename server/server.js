@@ -62,6 +62,12 @@ if(foundUser.password === password) {
 }
 });
 
+app.get('/profile', authorize, (req, res) => {
+    res.json({
+      tokenInfo: req.payload
+    });
+  })
+
 //use routes
 app.use('/participants', participantsRoutes);
 app.use('/foodburning', honouringRoutes);

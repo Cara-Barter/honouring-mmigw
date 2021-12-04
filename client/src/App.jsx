@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage/HomePage';
 import EventRegistration from './pages/EventRegistration/EventRegistration';
 import HonouringMMIWG from './pages/HonouringMMIWG/HonouringMMIWG';
 import Admin from './pages/Admin/Admin';
+import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
 
@@ -29,10 +30,14 @@ function App() {
             <HonouringMMIWG {...routerProps} />
           )}
           />
-          <Route path='/admin' render={(routerProps) => (
-            <Admin {...routerProps} />
+          <Route path='/login' render={(routerProps) => (
+            <Login {...routerProps} />
           )}
           />
+          {/* <Route path='/admin' render={(routerProps) => (
+            <Admin {...routerProps} />
+          )}
+          /> */}
           <Route component={NotFound} />
         </Switch>
         <Footer />
