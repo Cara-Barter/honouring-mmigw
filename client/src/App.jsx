@@ -34,10 +34,10 @@ function App() {
             <Login {...routerProps} />
           )}
           />
-          {/* <Route path='/admin' render={(routerProps) => (
+          <Route path='/admin' render={(routerProps) => (
             <Admin {...routerProps} />
           )}
-          /> */}
+          />
           <Route component={NotFound} />
         </Switch>
         <Footer />

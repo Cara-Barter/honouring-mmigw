@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
+import { Route } from "react-router-dom";
 
 import Button from "../../components/Button/Button";
 import Admin from "../Admin/Admin";
@@ -7,11 +8,9 @@ import Admin from "../Admin/Admin";
 class Login extends Component {
     state = {
         isLoggedIn: false,
-        profileData: null,
-        isRedirecting: false   
+        profileData: null, 
     }
 
-    
     componentDidMount() {
         const authToken = sessionStorage.getItem('clientAuthToken');
         this.fetchProfile(authToken)
@@ -21,7 +20,7 @@ class Login extends Component {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
-        axios.post('http://localhost:5000/login', {
+        axios.post(`${process.env.REACT_APP_API_URL}/login`, {
             username: username,
             password: password
         }).then(response => {
@@ -32,7 +31,7 @@ class Login extends Component {
     }
 
     fetchProfile = (token) => {
-        axios.get('http://localhost:5000/profile', {
+        axios.get(`${process.env.REACT_APP_API_URL}/profile`, {
           headers: {
             authorization: `Bearer ${token}`
           }
@@ -40,6 +39,7 @@ class Login extends Component {
           this.setState({
             profileData: response.data,
             isLoggedIn: true});
+            this.props.history.push('/admin')
         }).catch(err => console.log('profile error', err))
       }
 
@@ -49,6 +49,10 @@ class Login extends Component {
     //   }
 
       render() {
+          console.log(this.state.isLoggedIn);
+        // if(!token) {
+        //     return <h2>please log in</h2>
+        //  } else {
         return (
           <div>
             <h1>MMIWG Admin Login</h1>
@@ -62,15 +66,16 @@ class Login extends Component {
             }
             {this.state.isLoggedIn &&
             <>
-                {/* <Route path='/admin' render={(routerProps) => ( */}
-                    <Admin />
-                    {/* )}
-                /> */}
+                <Route path='/admin' render={(routerProps) => (
+                    <Admin {...routerProps} />
+                )}
+                />
             </>
             }
           </div>
         )
       }
+   // }
 }
 
 export default Login;

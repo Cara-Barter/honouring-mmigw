@@ -3,7 +3,7 @@ import './ParticipantList.scss';
 import Participant from '../Participant/Participant';
 
 function ParticipantList ({ participants }) {
-
+    console.log(participants);
     let expList = [];
 
     for (let i = 0; i < participants.length; i++) {
@@ -23,7 +23,9 @@ function ParticipantList ({ participants }) {
     
     //how to export address labels to CSV see https://www.npmjs.com/package/react-csv 
     let data = expList;
-
+    if(!participants) {
+        return <h1>loading...</h1>
+    }
     return (
         <article className="participants">
             <h1 className="participants__title">Participants List</h1>

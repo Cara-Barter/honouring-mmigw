@@ -22,27 +22,27 @@ const users = [
     }
 ];
 
-// const authorize = (req, res, next) => {
-//     if (!req.headers.authorization) {
-//       return res.status(401).json({message: 'No token found'})
-//     }
-//     const authTokenArray = req.headers.authorization.split(' ');
-//     if (authTokenArray[0].toLowerCase() !== 'bearer' && authTokenArray.length !== 2) {
-//       return res.status(401).json({message: 'Invalid token'});
-//     }
+const authorize = (req, res, next) => {
+    if (!req.headers.authorization) {
+      return res.status(401).json({message: 'No token found'})
+    }
+    const authTokenArray = req.headers.authorization.split(' ');
+    if (authTokenArray[0].toLowerCase() !== 'bearer' && authTokenArray.length !== 2) {
+      return res.status(401).json({message: 'Invalid token'});
+    }
   
-//     jwt.verify(authTokenArray[1], process.env.JWT_SECRET, (err, decoded) => {
-//       if (err) {
-//         return res.status(401).json({message: 'The token is expired or invalid'});
-//       }
-//       req.payload = decoded;
-//       next();
-//     });
-// }
+    jwt.verify(authTokenArray[1], process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        return res.status(401).json({message: 'The token is expired or invalid'});
+      }
+      req.payload = decoded;
+      next();
+    });
+}
 
 app.post('/login', (req, res) => {
     const {username, password} = req.body;
-
+    console.log('username, password', req.body);
     const foundUser = users.find(user => user.username === username);
 
     if (!foundUser) {
