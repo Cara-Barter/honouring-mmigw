@@ -14,7 +14,6 @@ class Admin extends Component {
         honourees: []
     }
 
-    
     getParticipants = () => {
         const authToken = sessionStorage.getItem('clientAuthToken');
         axios
@@ -35,7 +34,11 @@ class Admin extends Component {
     getHonourees = () => {
         const authToken = sessionStorage.getItem('clientAuthToken');
         axios
-            .get(`${process.env.REACT_APP_API_URL}/foodburning`)
+            .get(`${process.env.REACT_APP_API_URL}/foodburning`,{
+                headers: {
+                  authorization: `Bearer ${authToken}`
+                }
+                })
             .then((response) => {
                 //console.log(response.data);
                 this.setState({

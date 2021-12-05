@@ -1,6 +1,7 @@
 import './Shirts.scss';
 
 function Shirts ({ participants }) {
+    console.log(participants.sensitiveInfo);
     const shirtsNeeded = {
         small: 0,
         medium: 0,
@@ -11,9 +12,9 @@ function Shirts ({ participants }) {
         XXXXL: 0
     }
     
-   if(participants) {
-        for (let i = 0; i < participants.length; i++) {
-            let shirt = participants[i].shirtSize;
+   if(participants.sensitiveInfo) {
+        for (let i = 0; i < participants.sensitiveInfo.length; i++) {
+            let shirt = participants.sensitiveInfo[i].shirtSize;
             switch(shirt) {
                 case 'Small': shirtsNeeded.small++; break;
                 case 'Medium': shirtsNeeded.medium++; break;

@@ -3,27 +3,27 @@ import './ParticipantList.scss';
 import Participant from '../Participant/Participant';
 
 function ParticipantList ({ participants }) {
-    console.log(participants);
+    //console.log(participants.sensitiveInfo);
     let expList = [];
 
-    for (let i = 0; i < participants.length; i++) {
+    for (let i = 0; i < participants.sensitiveInfo.length; i++) {
         expList.push(
             {
-                firstName: participants[i].firstName,
-                lastName: participants[i].lastName,
-                address1: participants[i].address1,
-                address2: participants[i].address2,
-                city: participants[i].city,
-                province: participants[i].province,
-                postalCode: participants[i].postalCode,
-                country: participants[i].country,
+                firstName: participants.sensitiveInfo[i].firstName,
+                lastName: participants.sensitiveInfo[i].lastName,
+                address1: participants.sensitiveInfo[i].address1,
+                address2: participants.sensitiveInfo[i].address2,
+                city: participants.sensitiveInfo[i].city,
+                province: participants.sensitiveInfo[i].province,
+                postalCode: participants.sensitiveInfo[i].postalCode,
+                country: participants.sensitiveInfo[i].country,
             }
         )
     }
     
     //how to export address labels to CSV see https://www.npmjs.com/package/react-csv 
     let data = expList;
-    if(!participants) {
+    if(!participants.sensitiveInfo) {
         return <h1>loading...</h1>
     }
     return (
