@@ -1,7 +1,6 @@
 import './Shirts.scss';
 
 function Shirts ({ participants }) {
-    console.log(participants.sensitiveInfo);
     const shirtsNeeded = {
         small: 0,
         medium: 0,

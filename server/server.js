@@ -4,9 +4,9 @@ const app = express();
 const cors = require('cors');
 const port = process.env.PORT || 5000;
 const jwt = require('jsonwebtoken');
+const knex = require('knex')(require('./knexfile').development);
 const participantsRoutes = require('./routes/participants');
 const honouringRoutes = require('./routes/honouring');
-
 
 //add middleware
 app.use(express.json());
@@ -41,33 +41,43 @@ const authorize = (req, res, next) => {
 }
 
 app.post('/login', (req, res) => {
+  console.log('in login', req.body);
+  console.log(req.params)
   //TODO add knex
+  knex('admin')
+    // .where({ username: req.params.username })
+    .then((data) => {
     const {username, password} = req.body;
     console.log('username, password', req.body);
-    const foundUser = users.find(user => user.username === username);
+    
+    const foundUser = admin.find(admin => admin.username === username);
 
     if (!foundUser) {
-    return res.status(401).json({message: "No user found. Please check username." });
-}
+    return res.status(401).json({ message: "No user found. Please check username." });
+    }
 
-if(foundUser.password === password) {
-    // Generate token and send back
-    const token = jwt.sign({
-    name: foundUser.name,
-    username: foundUser.username,
-    loginTime: Date.now()
-    }, process.env.JWT_SECRET, {expiresIn: '59m'});
-    return res.status(200).json({token});
-} else {
-    return res.status(403).json({message: "Invalid username or password" }); 
-}
+    if(foundUser.password === password) {
+      // Generate token and send back
+      const token = jwt.sign({
+      name: foundUser.name,
+      username: foundUser.username,
+      loginTime: Date.now()
+      }, process.env.JWT_SECRET, {expiresIn: '59m'});
+      return res.status(200).json({token});
+    } else {
+      return res.status(403).json({message: "Invalid username or password" }); 
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 });
 
 app.get('/profile', authorize, (req, res) => {
-    res.json({
-      tokenInfo: req.payload
-    });
-  })
+  res.json({
+    tokenInfo: req.payload
+  });
+})
 
 //use routes
 app.use('/participants', participantsRoutes);

@@ -23,7 +23,6 @@ class Admin extends Component {
             }
             })
             .then((response) => {
-                //console.log(response.data);
                 this.setState({
                     participantsList: response.data,
                 });
@@ -40,7 +39,6 @@ class Admin extends Component {
                 }
                 })
             .then((response) => {
-                //console.log(response.data);
                 this.setState({
                     honourees: response.data,
                 });
@@ -51,12 +49,9 @@ class Admin extends Component {
     componentDidMount() {
         this.getParticipants();
         this.getHonourees();
-        //console.log(this.props);
     }
 
     render() {
-        //console.log(this.state.participantsList);
-        // console.log(this.state.singleParticipant);
         if(!this.state.participantsList) {
             return <h1>loading...</h1>
         }

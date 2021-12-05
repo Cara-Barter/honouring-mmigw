@@ -3,7 +3,6 @@ import './ParticipantList.scss';
 import Participant from '../Participant/Participant';
 
 function ParticipantList ({ participants }) {
-    //console.log(participants.sensitiveInfo);
     let expList = [];
 
     for (let i = 0; i < participants.sensitiveInfo.length; i++) {
