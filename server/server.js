@@ -41,6 +41,7 @@ const authorize = (req, res, next) => {
 }
 
 app.post('/login', (req, res) => {
+  //TODO add knex
     const {username, password} = req.body;
     console.log('username, password', req.body);
     const foundUser = users.find(user => user.username === username);

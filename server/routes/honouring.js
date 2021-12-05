@@ -2,11 +2,31 @@ const express = require('express');
 const router = express.Router();
 const knex = require('knex')(require('../knexfile').development);
 
+const authorize = (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(401).json({message: 'No token found'})
+  }
+  const authTokenArray = req.headers.authorization.split(' ');
+  if (authTokenArray[0].toLowerCase() !== 'bearer' && authTokenArray.length !== 2) {
+    return res.status(401).json({message: 'Invalid token'});
+  }
+
+  jwt.verify(authTokenArray[1], process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({message: 'The token is expired or invalid'});
+    }
+    req.payload = decoded;
+    next();
+  });
+}
+
 /* Get all honourees */
-router.get('/', (req, res) => {
+router.get('/', authorize,  (req, res) => {
     knex('honouring')
     .then((honourData) => {
-        res.status(200).json(honourData);
+        res.status(200).json({
+          tokenInfo: req.payload,
+          sensitiveInfo: honourData});
     })
     .catch(() => {
         res.status(400).json({
@@ -16,7 +36,7 @@ router.get('/', (req, res) => {
 });
 
 //get honourees by id
-router.get('/:id', (req, res) => {
+router.get('/:id', authorize, (req, res) => {
     knex('honouring')
         .then((data) => {
             if(!data.length) {
@@ -24,7 +44,9 @@ router.get('/:id', (req, res) => {
                     message: `honouree not found with the id ${req.params.id}`
                 });
             } else {
-                res.status(200).json(data);
+                res.status(200).json({
+                  tokenInfo: req.payload,
+                  sensitiveInfo: data});
             }
         })
         .catch(() => {
@@ -63,9 +85,7 @@ router.post('/', (req, res) => {
     });
 });
 
-/*
- * Update a participant
- */
+// Update a participant
 router.put('/:id', (req, res) => {
     knex('honouring')
       .where({ id: req.params.id })
@@ -84,9 +104,7 @@ router.put('/:id', (req, res) => {
       });
   });
   
-  /*
-   * Delete a participant
-   */
+  //Delete a participant
   router.delete('/:id', (req, res) => {
     knex('honouring')
       .where({ id: req.params.id })
@@ -101,5 +119,4 @@ router.put('/:id', (req, res) => {
       });
   });
   
-
 module.exports = router;

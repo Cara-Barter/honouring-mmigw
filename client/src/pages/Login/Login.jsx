@@ -11,10 +11,10 @@ class Login extends Component {
         profileData: null, 
     }
 
-    componentDidMount() {
-        const authToken = sessionStorage.getItem('clientAuthToken');
-        this.fetchProfile(authToken)
-      }
+    // componentDidMount() {
+    //     const authToken = sessionStorage.getItem('clientAuthToken');
+    //     this.fetchProfile(authToken)
+    //   }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -43,10 +43,10 @@ class Login extends Component {
         }).catch(err => console.log('profile error', err))
       }
 
-    //   componentDidMount() {
-    //     const authToken = sessionStorage.getItem('clientAuthToken');
-    //     this.fetchProfile(authToken)
-    //   }
+      componentDidMount() {
+        const authToken = sessionStorage.getItem('clientAuthToken');
+        this.fetchProfile(authToken)
+      }
 
       render() {
           console.log(this.state.isLoggedIn);

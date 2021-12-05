@@ -31,7 +31,7 @@ function ParticipantList ({ participants }) {
             <h1 className="participants__title">Participants List</h1>
             <CSVLink data={data}>Download List</CSVLink>
             <ul className="participants__list">
-                {participants
+                {participants.sensitiveInfo
                     .map((participant) => {
                         return (
                             <li 
