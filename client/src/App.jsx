@@ -12,7 +12,6 @@ import NotFound from './pages/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
 
 function App() {
-  // console.log('in app');
   return (
     <Router>
       <div className="App">
