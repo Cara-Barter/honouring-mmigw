@@ -42,15 +42,17 @@ const authorize = (req, res, next) => {
 
 app.post('/login', (req, res) => {
   console.log('in login', req.body);
-  console.log(req.params)
+  //console.log(req.params)
   //TODO add knex
-  knex('admin')
-    // .where({ username: req.params.username })
+  knex.from('admin')
+    .select('username')
     .then((data) => {
-    const {username, password} = req.body;
+      console.log(data);
+    const { username, password } = req.body;
     console.log('username, password', req.body);
     
-    const foundUser = admin.find(admin => admin.username === username);
+    const foundUser = data.find(data => data.username === username);
+    console.log(foundUser);
 
     if (!foundUser) {
     return res.status(401).json({ message: "No user found. Please check username." });
@@ -63,9 +65,9 @@ app.post('/login', (req, res) => {
       username: foundUser.username,
       loginTime: Date.now()
       }, process.env.JWT_SECRET, {expiresIn: '59m'});
-      return res.status(200).json({token});
+      return res.status(200).json({ token });
     } else {
-      return res.status(403).json({message: "Invalid username or password" }); 
+      return res.status(403).json({ message: "Invalid username or password" }); 
     }
   })
   .catch((error) => {
