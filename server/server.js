@@ -45,26 +45,28 @@ app.post('/login', (req, res) => {
   //console.log(req.params)
   //TODO add knex
   knex.from('admin')
-    .select('username')
+    .select('username', 'password')
     .then((data) => {
       console.log(data);
     const { username, password } = req.body;
     console.log('username, password', req.body);
     
-    const foundUser = data.find(data => data.username === username);
-    console.log(foundUser);
+    const foundUser = data.find(user => user.username === username);
+    console.log('foundUser', foundUser);
 
     if (!foundUser) {
     return res.status(401).json({ message: "No user found. Please check username." });
     }
-
+    console.log('foundUser password', foundUser.password)
     if(foundUser.password === password) {
+      console.log('in found password');
       // Generate token and send back
       const token = jwt.sign({
       name: foundUser.name,
       username: foundUser.username,
       loginTime: Date.now()
       }, process.env.JWT_SECRET, {expiresIn: '59m'});
+      console.log('env', process.env.JWT_SECRET);
       return res.status(200).json({ token });
     } else {
       return res.status(403).json({ message: "Invalid username or password" }); 

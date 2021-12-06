@@ -112,7 +112,6 @@ class EventRegistration extends Component {
       phone: this.state.phone,
       organization: this.state.organization
     };
-    console.log("hello", newParticipant);
 
     if (this.isFormValid()) {
       axios

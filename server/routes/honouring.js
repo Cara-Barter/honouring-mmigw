@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('knex')(require('../knexfile').development);
+const jwt = require('jsonwebtoken');
 
 const authorize = (req, res, next) => {
   if (!req.headers.authorization) {
