@@ -183,17 +183,17 @@ class HonouringMMIWG extends Component {
 
                             <div className='honour__btns'>
                                 
-                                <Button 
-                                    className='honour__btn'
-                                    type='submit'
-                                    text='Submit'
-                                />
                                 <Link to='/' className='honour__link'>
                                     <Button 
                                         className='honour__btn'
                                         text='Cancel'
                                     />
                                 </Link>
+                                <Button 
+                                    className='honour__btn'
+                                    type='submit'
+                                    text='Submit'
+                                />
                             </div>
                         </form>
                         <img 

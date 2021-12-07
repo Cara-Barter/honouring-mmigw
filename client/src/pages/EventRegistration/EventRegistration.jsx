@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import { Component } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
+import logo from '../../assets/logo/MMIWG-logo.png';
 
 class EventRegistration extends Component {
   state = {
@@ -136,304 +137,312 @@ class EventRegistration extends Component {
     }
     return (
       <article className="event">
-        <h1 className="event__title">Honouring MMIGW Event Registration</h1>
-        <form className="event__form" onSubmit={this.handleSubmit}>
-            
-            <label className="event__label">
-                Name<span className="event__star">*</span>
-            </label>
-            <input
-                className={`event__input ${
-                    this.state.nameRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="firstName"
-                onChange={this.handleChange}
-                value={this.state.firstName}
-                placeholder="First Name"
-            />
-            {this.state.nameRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-            <input
-                className={`event__input ${
-                    this.state.nameRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="lastName"
-                onChange={this.handleChange}
-                value={this.state.lastName}
-                placeholder="Last Name"
-            />
-            {this.state.nameRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-
-            <label className="event__label">
-                Email<span className="event__star">*</span>
-            </label>
-            <input
-                className={`event__input ${
-                    this.state.emailRequired ? "event__input--invalid" : ""
-                }`}
-                type="email"
-                name="email"
-                onChange={this.handleChange}
-                value={this.state.email}
-                placeholder="email"
-            />
-            {this.state.emailRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-
-            <label className="event__label">
-                Address<span className="event__star">*</span>
-            </label>
-            <input
-                className={`event__input ${
-                    this.state.addressRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="address1"
-                onChange={this.handleChange}
-                value={this.state.address1}
-                placeholder="street address"
-            />
-            {this.state.addressRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-            <input
-                className='event__input' 
-                type="text"
-                name="address2"
-                onChange={this.handleChange}
-                value={this.state.address2}
-                placeholder="apt, suite, etc"
-            />
-            <input
-                className={`event__input ${
-                    this.state.addressRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="city"
-                onChange={this.handleChange}
-                value={this.state.city}
-                placeholder="city"
-            />
-            {this.state.addressRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-            <input
-                className={`event__input ${
-                    this.state.addressRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="province"
-                onChange={this.handleChange}
-                value={this.state.province}
-                placeholder="province"
-            />
-            {this.state.addressRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-            <input
-                className={`event__input ${
-                    this.state.addressRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="postalCode"
-                onChange={this.handleChange}
-                value={this.state.postalCode}
-                placeholder="postal code"
-            />
-            {this.state.addressRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-            <input
-                className={`event__input ${
-                    this.state.addressRequired ? "event__input--invalid" : ""
-                }`}
-                type="text"
-                name="country"
-                onChange={this.handleChange}
-                value={this.state.country}
-                placeholder="country"
-            />
-            {this.state.addressRequired && (
-                <div className='event__error-container'>
-                    <p className='event__error-text'>
-                        This field is required
-                    </p>
-                </div>
-            )}
-
-            <label className="event__label">
-                Nation
-            </label>
-            <input
-                className='event__input' 
-                type="text"
-                name="nation"
-                onChange={this.handleChange}
-                value={this.state.nation}
-                placeholder="Nation"
-            />
-
-            <label className="event__label">
-                Gender
-            </label>
-            <input
-                className='event__input'
-                type="text"
-                name="gender"
-                onChange={this.handleChange}
-                value={this.state.gender}
-                placeholder="gender"
-            />
-
-            <label className="event__label">
-                Survivor
-            </label>
-            <select
-                className='event__input'
-                type='text'
-                name="survivor"
-                id="survivor"
-                onChange={this.handleChange}
-                defaultValue=''
-            >
-                <option value=''disabled>Please Select</option>
-                <option value='Supporter'>Supporter</option>
-                <option value='Residential School Survivor'>Residential School Survivor</option>
-                <option value='Day School Survivor'>Day School Survivor</option>
-                <option value='Intergenerational Survivor'>Intergenerational Survivor</option>
-                <option value='MMIWG Survivor'>MMIWG Survivor</option>
-                <option value='MMIWG Family Member'>MMIWG Family Member</option>
-            </select>   
-
-            <label className="event__label">
-                    Age<span className="event__star">*</span>
-            </label>
-            <select
-                className={`event__input ${
-                    this.state.ageRequired ? "event__input--invalid" : ""
-                }`}
-                type='text'
-                name="age"
-                id="age"
-                onChange={this.handleChange}
-                defaultValue=''
-            >
-                <option value=''disabled>Please Select</option>
-                <option value='0-19'>0-19</option>
-                <option value='20-39'>20-39</option>
-                <option value='40-59'>40-59</option>
-                <option value='60-74'>60-74</option>
-                <option value='75+'>75+</option>
-            </select>   
-
-            <label className="event__label">
-                Dedication
-            </label>
-            <input
-                className='event__input'
-                type="text"
-                name="dedicate"
-                onChange={this.handleChange}
-                value={this.state.dedicate}
-                placeholder="Is there someone you're dedicating your walk to?"
-            />
-
-            <label className='event__label'>
-                Shirt Size<span className="event__star">*</span>
-            </label>
-            <select
-                className={`event__input ${
-                    this.state.shirtRequired ? "event__input--invalid" : ""
-                }`}
-                type='text'
-                name="shirtSize"
-                id="shirtSize"
-                onChange={this.handleChange}
-                defaultValue=''
-            >
-                <option value=''disabled>Please Select</option>
-                <option value='Small'>Small</option>
-                <option value='Medium'>Medium</option>
-                <option value='Large'>Large</option>
-                <option value='XL'>XL</option>
-                <option value='XXL'>XXL</option>
-                <option value='XXXL'>XXXL</option>
-                <option value='XXXXL'>XXXL</option>
-            </select>
-
-            <label className="event__label">
-                Phone Number
-            </label>
-            <input
-                className='event__input'
-                type="text"
-                name="phone"
-                onChange={this.handleChange}
-                value={this.state.phone}
-                placeholder="phone"
-            />
-
-            <label className="event__label">
-                Organization
-            </label>
-            <input
-                className='event__input' 
-                type="text"
-                name="organization"
-                onChange={this.handleChange}
-                value={this.state.organization}
-                placeholder="Organization"
-            />
-
-            <div className='event__btns'>
-                <Link to='/' className='event__link'>
-                    <Button 
-                        className='event__btn'
-                        text='Cancel'
+          <div className="event__container">
+            <h1 className="event__title">Honouring MMIGW Event Registration</h1>
+            <section className="event__wrapper">
+                <form className="event__form" onSubmit={this.handleSubmit}>
+                    
+                    <label className="event__label">
+                        Name<span className="event__star">*</span>
+                    </label>
+                    <input
+                        className={`event__input ${
+                            this.state.nameRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="firstName"
+                        onChange={this.handleChange}
+                        value={this.state.firstName}
+                        placeholder="First Name"
                     />
-                </Link>
-                <Button 
-                    className='event__btn'
-                    type='submit'
-                    text='Submit'
-                />
-            </div>
-        </form>
-      </article>
+                    {this.state.nameRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+                    <input
+                        className={`event__input ${
+                            this.state.nameRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="lastName"
+                        onChange={this.handleChange}
+                        value={this.state.lastName}
+                        placeholder="Last Name"
+                    />
+                    {this.state.nameRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+
+                    <label className="event__label">
+                        Email<span className="event__star">*</span>
+                    </label>
+                    <input
+                        className={`event__input ${
+                            this.state.emailRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="email"
+                        name="email"
+                        onChange={this.handleChange}
+                        value={this.state.email}
+                        placeholder="email"
+                    />
+                    {this.state.emailRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+
+                    <label className="event__label">
+                        Address<span className="event__star">*</span>
+                    </label>
+                    <input
+                        className={`event__input ${
+                            this.state.addressRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="address1"
+                        onChange={this.handleChange}
+                        value={this.state.address1}
+                        placeholder="street address"
+                    />
+                    {this.state.addressRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+                    <input
+                        className='event__input' 
+                        type="text"
+                        name="address2"
+                        onChange={this.handleChange}
+                        value={this.state.address2}
+                        placeholder="apt, suite, etc"
+                    />
+                    <input
+                        className={`event__input ${
+                            this.state.addressRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="city"
+                        onChange={this.handleChange}
+                        value={this.state.city}
+                        placeholder="city"
+                    />
+                    {this.state.addressRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+                    <input
+                        className={`event__input ${
+                            this.state.addressRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="province"
+                        onChange={this.handleChange}
+                        value={this.state.province}
+                        placeholder="province"
+                    />
+                    {this.state.addressRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+                    <input
+                        className={`event__input ${
+                            this.state.addressRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="postalCode"
+                        onChange={this.handleChange}
+                        value={this.state.postalCode}
+                        placeholder="postal code"
+                    />
+                    {this.state.addressRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+                    <input
+                        className={`event__input ${
+                            this.state.addressRequired ? "event__input--invalid" : ""
+                        }`}
+                        type="text"
+                        name="country"
+                        onChange={this.handleChange}
+                        value={this.state.country}
+                        placeholder="country"
+                    />
+                    {this.state.addressRequired && (
+                        <div className='event__error-container'>
+                            <p className='event__error-text'>
+                                This field is required
+                            </p>
+                        </div>
+                    )}
+
+                    <label className="event__label">
+                        Nation
+                    </label>
+                    <input
+                        className='event__input' 
+                        type="text"
+                        name="nation"
+                        onChange={this.handleChange}
+                        value={this.state.nation}
+                        placeholder="Nation"
+                    />
+
+                    <label className="event__label">
+                        Gender
+                    </label>
+                    <input
+                        className='event__input'
+                        type="text"
+                        name="gender"
+                        onChange={this.handleChange}
+                        value={this.state.gender}
+                        placeholder="gender"
+                    />
+
+                    <label className="event__label">
+                        Survivor
+                    </label>
+                    <select
+                        className='event__input'
+                        type='text'
+                        name="survivor"
+                        id="survivor"
+                        onChange={this.handleChange}
+                        defaultValue=''
+                    >
+                        <option value=''disabled>Please Select</option>
+                        <option value='Supporter'>Supporter</option>
+                        <option value='Residential School Survivor'>Residential School Survivor</option>
+                        <option value='Day School Survivor'>Day School Survivor</option>
+                        <option value='Intergenerational Survivor'>Intergenerational Survivor</option>
+                        <option value='MMIWG Survivor'>MMIWG Survivor</option>
+                        <option value='MMIWG Family Member'>MMIWG Family Member</option>
+                    </select>   
+
+                    <label className="event__label">
+                            Age<span className="event__star">*</span>
+                    </label>
+                    <select
+                        className={`event__input ${
+                            this.state.ageRequired ? "event__input--invalid" : ""
+                        }`}
+                        type='text'
+                        name="age"
+                        id="age"
+                        onChange={this.handleChange}
+                        defaultValue=''
+                    >
+                        <option value=''disabled>Please Select</option>
+                        <option value='0-19'>0-19</option>
+                        <option value='20-39'>20-39</option>
+                        <option value='40-59'>40-59</option>
+                        <option value='60-74'>60-74</option>
+                        <option value='75+'>75+</option>
+                    </select>   
+
+                    <label className="event__label">
+                        Dedication
+                    </label>
+                    <input
+                        className='event__input'
+                        type="text"
+                        name="dedicate"
+                        onChange={this.handleChange}
+                        value={this.state.dedicate}
+                        placeholder="Is there someone you're dedicating your walk to?"
+                    />
+
+                    <label className='event__label'>
+                        Shirt Size<span className="event__star">*</span>
+                    </label>
+                    <select
+                        className={`event__input ${
+                            this.state.shirtRequired ? "event__input--invalid" : ""
+                        }`}
+                        type='text'
+                        name="shirtSize"
+                        id="shirtSize"
+                        onChange={this.handleChange}
+                        defaultValue=''
+                    >
+                        <option value=''disabled>Please Select</option>
+                        <option value='Small'>Small</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='Large'>Large</option>
+                        <option value='XL'>XL</option>
+                        <option value='XXL'>XXL</option>
+                        <option value='XXXL'>XXXL</option>
+                        <option value='XXXXL'>XXXL</option>
+                    </select>
+
+                    <label className="event__label">
+                        Phone Number
+                    </label>
+                    <input
+                        className='event__input'
+                        type="text"
+                        name="phone"
+                        onChange={this.handleChange}
+                        value={this.state.phone}
+                        placeholder="phone"
+                    />
+
+                    <label className="event__label">
+                        Organization
+                    </label>
+                    <input
+                        className='event__input' 
+                        type="text"
+                        name="organization"
+                        onChange={this.handleChange}
+                        value={this.state.organization}
+                        placeholder="Organization"
+                    />
+
+                    <div className='event__btns'>
+                        <Link to='/' className='event__link'>
+                            <Button 
+                                className='event__btn'
+                                text='Cancel'
+                            />
+                        </Link>
+                        <Button 
+                            className='event__btn'
+                            type='submit'
+                            text='Submit'
+                        />
+                    </div>
+                </form>
+                <img 
+                className="event__logo" 
+                src={logo} 
+                alt='art of woman in red dress with arms outstretched' />
+            </section>
+        </div>
+    </article>
     );
     }
 }
