@@ -1,0 +1,52 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.admin {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 60rem;
+        margin: 0 auto;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        @include desktop {
+            justify-content: space-between;
+        }
+    }
+    &__nav {
+        @include tablet {
+            margin: 2rem 0;
+        }
+        @include desktop {
+            display: flex;
+            width: 80%;
+        }
+    }
+    &__link {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__btn {
+        padding: .5rem;
+        border-radius: 4px;
+        border: 1px solid $color-outline-plum;
+        background-color: $color-btn-ochre;
+        color: $color-font-alt;
+        letter-spacing: .75px;
+        width: 100%;
+        margin: .5rem auto;
+        @include desktop {
+            width: 12rem;
+        }
+    }
+    &__logo {
+        display: none;
+        @include tablet {
+            display: inline;
+            margin: 1rem 0;
+            height: 15rem;
+        }
+    }
+}
