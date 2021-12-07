@@ -1,10 +1,21 @@
+@use '../../styles/partials/variables' as *;
 
 .home {
+    background-color: black;
+    color: white;
+    &__container {
+    width: 92%;
+    margin: 0 auto; 
+    }
     &__title {
+       
         font-weight: 600;
-        padding: 1rem;
+        padding: 1rem 0;
     }
     &__text {
-        padding: 0 1rem 1rem;
+       padding: 1rem 0;
+    }
+    &__tag {
+        padding: 0.5rem 0;
     }
 }

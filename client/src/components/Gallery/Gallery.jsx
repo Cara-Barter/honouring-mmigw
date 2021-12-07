@@ -43,7 +43,7 @@ function Gallery() {
                     <img className='gallery__img' src={trail} alt='mountain trail with lots of cloudy skies' />
                 </li>
                 <li className="gallery__item">
-                    <img className='gallery__img' src={hike} alt='man on mountain road looking to the sky' />
+                    <img className='gallery__img' src={hike} alt='person in a red coat on mountain road looking to the sky' />
                 </li>
             </ul>
         </section>

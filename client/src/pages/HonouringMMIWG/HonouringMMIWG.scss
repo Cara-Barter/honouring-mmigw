@@ -1,36 +1,126 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .honour {
-    width: 95%;
-    margin: 0 auto;
+    border-top: 1px solid $color-outline-plum;
+    border-bottom: 1px solid $color-outline-plum;
+    &__container {
+        max-width: 65rem;
+        margin: 0 auto;
+    }
     &__title {
+        margin: 1rem;
         font-weight: 600;
         font-size: 1.25rem;
+        @include tablet {
+            font-size: 2rem;
+            margin: 2rem 0 1rem 2.5rem;
+        }
+        @include desktop {
+            margin: 2rem 0 1rem 4rem;
+        }
+    }
+    &__wrapper {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @include desktop {
+            width: 100%;
+            justify-content: space-around;
+        }
     }
     &__form {
         display: flex;
         flex-direction: column;
+        padding: 0 0 1rem 0;
+        @include tablet {
+            width: 25rem;
+            padding: 2rem 0;
+        }
+        @include desktop {
+            width: 35rem;
+        }
     }
     &__label {
         padding-bottom: 3px;
         font-size: .75rem;
+        text-transform: uppercase;
+        @include tablet {
+            font-size: .85rem;
+        }
     }
     &__star {
         color: $color-red-highlight;
     }
     &__input {
-        padding: .25rem;
-        margin-bottom: .25rem;
-        background-color: $color-background-highlight;
-        border-radius: 5px;
+        padding: .5rem;
+        margin-bottom: .75rem;
+        background-color: $color-background-alt;
+        border-radius: 4px;
         font-size: .75rem;
+        @include tablet {
+            font-size: 1rem;
+        }
         &:focus {
             outline: none;
-            border: 1px solid $color-blue-hightlight;
+            border: 1px solid $color-brown-hightlight;
         }
         &--invalid {
             outline: none;
             border: 1px solid $color-red-highlight;
+        }
+    }
+    &__error-container {
+        background-color: $color-highlight-yellow;
+        width: 50%;
+        border-radius: 4px;
+        position: relative;
+        padding: .3125rem;
+        margin: .5rem;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-bottom-color: $color-highlight-yellow;
+	        border-top: 0;
+	        border-left: 0;
+	        margin-left: -10px;
+	        margin-top: -10px;
+        }
+    }
+    &__error-text {
+        font-size: .75rem;
+    }
+    &__btns {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        @include tablet {
+            width: 9rem;
+        }
+    }
+    &__btn {
+        padding: .5rem;
+        border-radius: 4px;
+        border: 1px solid $color-outline-plum;
+        background-color: $color-btn-ochre;
+        color: $color-font-alt;
+        letter-spacing: .75px;
+    }
+    &__logo {
+        display: none;
+        @include tablet {
+            display: inline;
+            margin: 1rem 0 1rem;
         }
     }
 }

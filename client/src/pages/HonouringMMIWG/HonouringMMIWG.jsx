@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import axios from "axios";
+import logo from '../../assets/logo/MMIWG-logo.png';
 
 class HonouringMMIWG extends Component {
     state = {
@@ -84,119 +85,123 @@ class HonouringMMIWG extends Component {
         }
         return (
             <article className="honour">
-                <h1 className="honour__title">Register a Loved One to be Honoured</h1>
-                <section className="honour__wrapper">
+                <div className="honour__container">
+                    <h1 className="honour__title">Register a Loved One to be Honoured</h1>
+                    <section className="honour__wrapper">
 
-                    <form onSubmit={this.handleSubmit} className="honour__form">
-                        
-                        <label className="honour__label">
-                            Your Name<span className="honour__star">*</span>
-                        </label>
-                        <input
-                            className={`honour__input ${
-                                this.state.nameRequired ? "honour__input--invalid" : ""
-                            }`}
-                            type="text"
-                            name="yourName"
-                            onChange={this.handleChange}
-                            value={this.state.yourName}
-                            placeholder="Your Name"
-                        />
-                        {this.state.nameRequired && (
-                            <div className='event__error-container'>
-                                <p className='event__error-text'>
-                                    This field is required
-                                </p>
-                            </div>
-                        )}
+                        <form onSubmit={this.handleSubmit} className="honour__form">
+                            
+                            <label className="honour__label">
+                                Your Name<span className="honour__star">*</span>
+                            </label>
+                            <input
+                                className={`honour__input ${
+                                    this.state.nameRequired ? "honour__input--invalid" : ""
+                                }`}
+                                type="text"
+                                name="yourName"
+                                onChange={this.handleChange}
+                                value={this.state.yourName}
+                                placeholder="Your Name"
+                            />
+                            {this.state.nameRequired && (
+                                <div className='honour__error-container'>
+                                    <p className='honour__error-text'>
+                                        This field is required
+                                    </p>
+                                </div>
+                            )}
 
-                        <label className="event__label">
-                            Your Loved Ones Name<span className="event__star">*</span>
-                        </label>
-                        <input
-                            className={`event__input ${
-                                this.state.lovedOneRequired ? "event__input--invalid" : ""
-                            }`}
-                            type="text"
-                            name="lovedOnesName"
-                            onChange={this.handleChange}
-                            value={this.state.lovedOnesName}
-                            placeholder="Your Loved Ones Name"
-                        />
-                        {this.state.lovedOneRequired && (
-                            <div className='event__error-container'>
-                                <p className='event__error-text'>
-                                    This field is required
-                                </p>
-                            </div>
-                        )}
+                            <label className="honour__label">
+                                Your Loved Ones Name<span className="honour__star">*</span>
+                            </label>
+                            <input
+                                className={`honour__input ${
+                                    this.state.lovedOneRequired ? "honour__input--invalid" : ""
+                                }`}
+                                type="text"
+                                name="lovedOnesName"
+                                onChange={this.handleChange}
+                                value={this.state.lovedOnesName}
+                                placeholder="Your Loved Ones Name"
+                            />
+                            {this.state.lovedOneRequired && (
+                                <div className='honour__error-container'>
+                                    <p className='honour__error-text'>
+                                        This field is required
+                                    </p>
+                                </div>
+                            )}
 
-                        <label className="event__label">
-                            Their Nation
-                        </label>
-                        <input
-                            className='event__input' 
-                            type="text"
-                            name="nation"
-                            onChange={this.handleChange}
-                            value={this.state.nation}
-                            placeholder="their Nation"
-                        />
+                            <label className="honour__label">
+                                Their Nation
+                            </label>
+                            <input
+                                className='honour__input' 
+                                type="text"
+                                name="nation"
+                                onChange={this.handleChange}
+                                value={this.state.nation}
+                                placeholder="Their Nation"
+                            />
 
-                        <label className="event__label">
-                             Their Gender
-                        </label>
-                        <input
-                            className='event__input'
-                            type="text"
-                            name="gender"
-                            onChange={this.handleChange}
-                            value={this.state.gender}
-                            placeholder="their gender"
-                        />
+                            <label className="honour__label">
+                                Their Gender
+                            </label>
+                            <input
+                                className='honour__input'
+                                type="text"
+                                name="gender"
+                                onChange={this.handleChange}
+                                value={this.state.gender}
+                                placeholder="Their Gender"
+                            />
 
-                        <label className="event__label">
-                             Their Community
-                        </label>
-                        <input
-                            className='event__input'
-                            type="text"
-                            name="community"
-                            onChange={this.handleChange}
-                            value={this.state.community}
-                            placeholder="their community"
-                        />
+                            <label className="honour__label">
+                                Their Community
+                            </label>
+                            <input
+                                className='honour__input'
+                                type="text"
+                                name="community"
+                                onChange={this.handleChange}
+                                value={this.state.community}
+                                placeholder="Their Community"
+                            />
 
-                        <label className="event__label">
-                            Your Relationship
-                        </label>
-                        <input
-                            className='event__input'
-                            type="text"
-                            name="relationship"
-                            onChange={this.handleChange}
-                            value={this.state.relationship}
-                            placeholder="eg. sister, cousin, friend"
-                        />
+                            <label className="honour__label">
+                                Your Relationship
+                            </label>
+                            <input
+                                className='honour__input'
+                                type="text"
+                                name="relationship"
+                                onChange={this.handleChange}
+                                value={this.state.relationship}
+                                placeholder="eg. sister, cousin, friend"
+                            />
 
-                        <div className='honour__btns'>
-                            <Link to='/' className='event__link'>
+                            <div className='honour__btns'>
+                                
                                 <Button 
                                     className='honour__btn'
-                                    text='Cancel'
+                                    type='submit'
+                                    text='Submit'
                                 />
-                            </Link>
-                            <Button 
-                                className='honour__btn'
-                                type='submit'
-                                text='Submit'
-                            />
-                        </div>
-
-
-
-                    </form>
-                </section>
+                                <Link to='/' className='honour__link'>
+                                    <Button 
+                                        className='honour__btn'
+                                        text='Cancel'
+                                    />
+                                </Link>
+                            </div>
+                        </form>
+                        <img 
+                        className="honour__logo" 
+                        src={logo} 
+                        alt='art of woman in red dress with arms outstretched' />
+                    </section>
+                </div>
             </article>
         )
     }
