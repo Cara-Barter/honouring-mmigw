@@ -88,7 +88,6 @@ class HonouringMMIWG extends Component {
                 <div className="honour__container">
                     <h1 className="honour__title">Register a Loved One to be Honoured</h1>
                     <section className="honour__wrapper">
-
                         <form onSubmit={this.handleSubmit} className="honour__form">
                             
                             <label className="honour__label">

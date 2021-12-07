@@ -191,7 +191,7 @@ class EventRegistration extends Component {
                         name="email"
                         onChange={this.handleChange}
                         value={this.state.email}
-                        placeholder="email"
+                        placeholder="Email"
                     />
                     {this.state.emailRequired && (
                         <div className='event__error-container'>
@@ -212,7 +212,7 @@ class EventRegistration extends Component {
                         name="address1"
                         onChange={this.handleChange}
                         value={this.state.address1}
-                        placeholder="street address"
+                        placeholder="Street Address"
                     />
                     {this.state.addressRequired && (
                         <div className='event__error-container'>
@@ -227,7 +227,7 @@ class EventRegistration extends Component {
                         name="address2"
                         onChange={this.handleChange}
                         value={this.state.address2}
-                        placeholder="apt, suite, etc"
+                        placeholder="Apt, Suite, etc"
                     />
                     <input
                         className={`event__input ${
@@ -237,7 +237,7 @@ class EventRegistration extends Component {
                         name="city"
                         onChange={this.handleChange}
                         value={this.state.city}
-                        placeholder="city"
+                        placeholder="City"
                     />
                     {this.state.addressRequired && (
                         <div className='event__error-container'>
@@ -254,7 +254,7 @@ class EventRegistration extends Component {
                         name="province"
                         onChange={this.handleChange}
                         value={this.state.province}
-                        placeholder="province"
+                        placeholder="Province"
                     />
                     {this.state.addressRequired && (
                         <div className='event__error-container'>
@@ -271,7 +271,7 @@ class EventRegistration extends Component {
                         name="postalCode"
                         onChange={this.handleChange}
                         value={this.state.postalCode}
-                        placeholder="postal code"
+                        placeholder="Postal Code"
                     />
                     {this.state.addressRequired && (
                         <div className='event__error-container'>
@@ -288,7 +288,7 @@ class EventRegistration extends Component {
                         name="country"
                         onChange={this.handleChange}
                         value={this.state.country}
-                        placeholder="country"
+                        placeholder="Country"
                     />
                     {this.state.addressRequired && (
                         <div className='event__error-container'>
@@ -319,7 +319,7 @@ class EventRegistration extends Component {
                         name="gender"
                         onChange={this.handleChange}
                         value={this.state.gender}
-                        placeholder="gender"
+                        placeholder="Gender"
                     />
 
                     <label className="event__label">
@@ -407,7 +407,7 @@ class EventRegistration extends Component {
                         name="phone"
                         onChange={this.handleChange}
                         value={this.state.phone}
-                        placeholder="phone"
+                        placeholder="Phone"
                     />
 
                     <label className="event__label">

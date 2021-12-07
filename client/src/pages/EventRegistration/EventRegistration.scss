@@ -63,6 +63,8 @@
         background-color: $color-background-alt;
         border-radius: 4px;
         font-size: .75rem;
+        outline: none;
+        border: 1px solid $color-background-highlight;
         @include tablet {
             font-size: 1rem;
         }
@@ -101,12 +103,9 @@
         font-size: .75rem;
     }
     &__btns {
-        width: 50%;
+        width: 9rem;
         display: flex;
         justify-content: space-between;
-        @include tablet {
-            width: 9rem;
-        }
     }
     &__btn {
         padding: .5rem;
