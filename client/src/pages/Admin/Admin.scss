@@ -2,6 +2,8 @@
 @use '../../styles/partials/mixins' as *;
 
 .admin {
+    border-top: 1px solid $color-outline-plum;
+    border-bottom: 1px solid $color-outline-plum;
     &__wrapper {
         display: flex;
         flex-direction: column;
@@ -16,8 +18,11 @@
         }
     }
     &__nav {
+        padding: 1rem;
+        border-bottom: 1px solid $color-outline-plum;
         @include tablet {
             margin: 2rem 0;
+            border: none;
         }
         @include desktop {
             display: flex;

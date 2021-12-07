@@ -3,7 +3,8 @@
 
 
 .home {
-    
+    border-top: 1px solid $color-outline-plum;
+    border-bottom: 1px solid $color-outline-plum;
     &__container {
         max-width: 65rem;
         width: 92%;
@@ -11,7 +12,6 @@
     }
     &__title {
         font-weight: 600;
-       // padding: 1rem 0;
         font-weight: 600;
         font-size: 1.25rem;
         margin: 1rem 0;

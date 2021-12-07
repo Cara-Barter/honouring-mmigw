@@ -27,21 +27,25 @@ function ParticipantList ({ participants }) {
     }
     return (
         <article className="participants">
-            <h1 className="participants__title">Participants List</h1>
-            <CSVLink data={data}>Download List</CSVLink>
-            <ul className="participants__list">
-                {participants.sensitiveInfo
-                    .map((participant) => {
-                        return (
-                            <li 
-                                    className="participants__item"
-                                    key={participant.id}>
-                                        <Participant participant={participant} />
-                            </li> 
-                        );
-                    }
-                )}
-            </ul>   
+            <div className="participants__container">
+                <h1 className="participants__title">Participants List</h1>
+                <CSVLink 
+                    className="participants__csv" 
+                    data={data}>Download List</CSVLink>
+                <ul className="participants__list">
+                    {participants.sensitiveInfo
+                        .map((participant) => {
+                            return (
+                                <li 
+                                        className="participants__item"
+                                        key={participant.id}>
+                                            <Participant participant={participant} />
+                                </li> 
+                            );
+                        }
+                    )}
+                </ul>
+            </div>   
         </article>
     )
 
