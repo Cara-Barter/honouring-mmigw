@@ -1,0 +1,32 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.honourees {
+    @include tablet {
+        transform: translateY(-250px);
+    }
+    @include desktop {
+        transform: translateY(-350px);
+    }
+    &__container {
+        max-width: 45rem;
+        width: 90%;
+        margin: 0 auto; 
+    }
+    &__title {
+        font-weight: 600;
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin: 1.5rem 0;
+        @include tablet {
+            font-size: 2rem;
+            margin: 2rem 0 ;
+        }
+    }
+    &__list {
+        margin: 1.5rem 0;
+    }
+    &__item {
+        border-bottom: 1px solid $color-outline-plum;
+    }
+}

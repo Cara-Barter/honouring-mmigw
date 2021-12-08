@@ -1,0 +1,15 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.honouree {
+    margin: 2rem 0;
+    &__title {
+        margin: .5rem 0;
+    }
+    &__label {
+        font-weight: 600;
+    }
+    &__details {
+        margin: .5rem 0;
+    }
+}
