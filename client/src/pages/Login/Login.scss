@@ -1,0 +1,83 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.login {
+    border-top: 1px solid $color-outline-plum;
+    border-bottom: 1px solid $color-outline-plum;
+    &__container {
+        width: 90%;
+        max-width: 65rem;
+        margin: 0 auto;
+    }
+    &__title {
+        font-weight: 600;
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin: 1.5rem 2rem;
+        @include tablet {
+            font-size: 2rem;
+            margin: 2rem 0 0 2.5rem;
+        }
+    }
+    &__wrapper {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @include desktop {
+            width: 100%;
+            justify-content: space-around;
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 1rem 0;
+        @include tablet {
+            width: 25rem;
+            padding: 2rem 0;
+        }
+        @include desktop {
+            width: 35rem;
+        }
+    }
+    &__input {
+        padding: .5rem;
+        margin-bottom: .75rem;
+        background-color: $color-background-alt;
+        border-radius: 4px;
+        font-size: .75rem;
+        outline: none;
+        border: 1px solid $color-background-highlight;
+        @include tablet {
+            font-size: 1rem;
+        }
+        &:focus {
+            outline: none;
+            border: 1px solid $color-brown-hightlight;
+        }
+        &--invalid {
+            outline: none;
+            border: 1px solid $color-red-highlight;
+        }
+    }
+    &__btn {
+        padding: .5rem;
+        border-radius: 4px;
+        border: 1px solid $color-outline-plum;
+        background-color: $color-btn-ochre;
+        color: $color-font-alt;
+        letter-spacing: .75px;
+    }
+    &__logo {
+        display: none;
+        @include tablet {
+            display: inline;
+            margin: 1rem 0 4rem;
+        }
+    }
+}

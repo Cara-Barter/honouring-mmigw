@@ -8,7 +8,7 @@
         padding: 2rem;
     }
     &__container {
-        max-width: 45rem;
+        max-width: 65rem;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -36,7 +36,6 @@
     &__nav {
         width: 100%;
         @include tablet {
-            // width: 80%;
             justify-content: space-between;
         }
         &-list {

@@ -1,7 +1,7 @@
 import './Honouree.scss';
 
 function Honouree ({honouree}) {
-    console.log(honouree);
+    
     return (
         <article className="honouree">
             <div className="honouree__container">

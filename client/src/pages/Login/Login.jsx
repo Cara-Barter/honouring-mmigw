@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 
 import Button from "../../components/Button/Button";
 import Admin from "../Admin/Admin";
+import logo from '../../assets/logo/MMIWG-logo.png';
 
 class Login extends Component {
   state = {
@@ -45,26 +46,33 @@ class Login extends Component {
     this.fetchProfile(authToken)
   }
 
-  render(token) {
+  render() {
     return (
       <div className="login">
-        <h1 className="login__title">MMIWG Admin Login</h1>
-        {!this.state.isLoggedIn && 
-          <form className="login__form" onSubmit={this.handleSubmit}>
-            <h2 className="login__form-title">Login Form</h2>
-            <input className="login__input" name="username" type="text" placeholder="User Name"/>
-            <input className="login__input" name="password" type="password" placeholder="Password"/>
-            <Button className='login__btn' type='submit' text='Submit' />
-          </form>
-        }
-        {this.state.isLoggedIn &&
-        <>
-            <Route path='/admin' render={(routerProps) => (
-                <Admin {...routerProps} />
-            )}
-            />
-        </>
-        }
+        <div className="login__container">
+          <h1 className="login__title">MMIWG Admin Login</h1>
+          {!this.state.isLoggedIn && 
+            <div className="login__wrapper">
+              <form className="login__form" onSubmit={this.handleSubmit}>
+                <input className="login__input" name="username" type="text" placeholder="User Name"/>
+                <input className="login__input" name="password" type="password" placeholder="Password"/>
+                <Button className='login__btn' type='submit' text='Submit' />
+              </form>
+              <img 
+              className="honour__logo" 
+              src={logo} 
+              alt='art of woman in red dress with arms outstretched' />
+            </div>
+          }
+          {this.state.isLoggedIn &&
+          <>
+              <Route path='/admin' render={(routerProps) => (
+                  <Admin {...routerProps} />
+              )}
+              />
+          </>
+          }
+        </div>
       </div>
     )
   }
