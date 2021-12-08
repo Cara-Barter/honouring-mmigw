@@ -3,14 +3,20 @@
 
 .footer {
     background-color: $color-background-alt;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include tablet {
-        flex-direction: row-reverse;
-        justify-content: space-around;
-    }
     &__container {
+        max-width: 62rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include tablet {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 80%;
+        }
+    }
+    &__wrapper {
+        
         @include tablet {
             margin: 1rem 0;
         }

@@ -62,7 +62,10 @@
         display: none;
         @include tablet {
             display: inline;
-            margin: 1rem 0 2.5rem;
+            margin: 1rem 0 4rem;
+            object-fit: cover;
+            height:fit-content;
+            margin: 3rem 0;
         }
     }
 }
