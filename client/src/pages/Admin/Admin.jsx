@@ -77,7 +77,7 @@ class Admin extends Component {
                         <Link to='/admin/foodburning' className="admin__link">
                             <Button 
                                 className='admin__btn'
-                                text='MMIWG Food Burning'
+                                text='Food Burning'
                             />
                         </Link>      
                     </nav>

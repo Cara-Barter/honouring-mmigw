@@ -52,7 +52,9 @@ router.get('/:id', authorize, (req, res) => {
                     message: `participant not found with the id ${req.params.id}`
                 });
             } else {
-                res.status(200).json(data);
+                res.status(200).json({
+                  tokenInfo: req.payload,
+                  sensitiveInfo: data});
             }
         })
         .catch(() => {

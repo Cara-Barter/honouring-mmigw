@@ -7,11 +7,11 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        max-width: 60rem;
+        max-width: 45rem;
         margin: 0 auto;
         @include tablet {
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
         }
         @include desktop {
             justify-content: space-between;
@@ -23,6 +23,7 @@
         @include tablet {
             margin: 2rem 0;
             border: none;
+            padding: 0;
         }
         @include desktop {
             display: flex;
@@ -43,7 +44,7 @@
         width: 100%;
         margin: .5rem auto;
         @include desktop {
-            width: 12rem;
+            width: 9rem;
         }
     }
     &__logo {
@@ -51,7 +52,8 @@
         @include tablet {
             display: inline;
             margin: 1rem 0;
-            height: 15rem;
+            height: 25rem;
+            transform: translateY(80px);
         }
     }
 }

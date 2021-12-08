@@ -1,0 +1,30 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.single {
+    @include tablet {
+        transform: translateY(-250px);
+    }
+    @include desktop {
+        transform: translateY(-300px);
+    }
+    &__container {
+        max-width: 45rem;
+        width: 92%;
+        margin: 0 auto 2rem; 
+    }
+    &__title {
+        margin: 1rem 0 1rem 0;
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+    &__label {
+        font-weight: 600;
+    }
+    &__details {
+        margin: .75rem 0;
+        @include tablet {
+            margin: 1rem 0;
+        }
+    }
+}

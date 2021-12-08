@@ -1,0 +1,27 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.participant {
+    margin: 2rem 0;
+    &__title {
+        margin: .5rem 0;
+    }
+    &__name {
+        font-weight: 600;
+    }
+    &__details {
+        margin: .5rem 0;
+    }
+    &__link {
+
+    }
+    &__btn {
+        padding: .5rem;
+        margin: .5rem 0;
+        border-radius: 4px;
+        border: 1px solid $color-outline-plum;
+        background-color: $color-btn-ochre;
+        color: $color-font-alt;
+        letter-spacing: .75px;
+    }
+}
