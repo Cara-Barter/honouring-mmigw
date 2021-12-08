@@ -1,0 +1,27 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.shirts {
+    @include tablet {
+        transform: translateY(-230px);
+    }
+    @include desktop {
+        transform: translateY(-335px);
+    }
+    &__container {
+        max-width: 45rem;
+        width: 92%;
+        margin: 0 auto 2rem; 
+    }
+    &__title {
+        margin: 1rem 0 1rem 0;
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+    &__text {
+        margin: .75rem 0;
+        @include tablet {
+            margin: 1rem 0;
+        }
+    }
+}

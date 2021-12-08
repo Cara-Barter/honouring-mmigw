@@ -29,14 +29,16 @@ function Shirts ({ participants }) {
 
     return (
         <article className='shirts'>
-            <h1 className="shirts__title">T-Shirt List</h1>
-            <p className='shirts__text'>Small: {shirtsNeeded.small}</p>
-            <p className='shirts__text'>Medium: {shirtsNeeded.medium}</p>
-            <p className='shirts__text'>Large: {shirtsNeeded.large}</p>
-            <p className='shirts__text'>XL: {shirtsNeeded.XL}</p>
-            <p className='shirts__text'>XXL: {shirtsNeeded.XXL}</p>
-            <p className='shirts__text'>XXXL: {shirtsNeeded.XXXL}</p>
-            <p className='shirts__text'>XXXXL: {shirtsNeeded.XXXXL}</p>
+            <div className="shirts__container">
+                <h1 className="shirts__title">T-Shirt List</h1>
+                <p className='shirts__text'>Small: {shirtsNeeded.small}</p>
+                <p className='shirts__text'>Medium: {shirtsNeeded.medium}</p>
+                <p className='shirts__text'>Large: {shirtsNeeded.large}</p>
+                <p className='shirts__text'>XL: {shirtsNeeded.XL}</p>
+                <p className='shirts__text'>XXL: {shirtsNeeded.XXL}</p>
+                <p className='shirts__text'>XXXL: {shirtsNeeded.XXXL}</p>
+                <p className='shirts__text'>XXXXL: {shirtsNeeded.XXXXL}</p>
+            </div>
         </article>
     )
     

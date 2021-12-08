@@ -13,7 +13,7 @@ function Participant ({participant}) {
             </h2>
             <p className='participant__details'>
                 <span className='participant__name'>Address:</span>
-                {`${participant.address1}, 
+                {` ${participant.address1}, 
                 ${participant.address2}, 
                 ${participant.city} 
                 ${participant.province} 
@@ -23,47 +23,47 @@ function Participant ({participant}) {
             <p className='participant__details'>
                 <span className='participant__name'>
                     Email: 
-                </span>{participant.email}
+                </span>{` ${participant.email}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Phone: 
-                </span>{participant.phone}
+                </span>{` ${participant.phone}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Nation: 
-                </span>{participant.nation}
+                </span>{` ${participant.nation}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Age: 
-                </span>{participant.age}
+                </span>{` ${participant.age}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Gender: 
-                </span>{participant.gender}
+                </span>{` ${participant.gender}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Survivor: 
-                </span>{participant.survivor}
+                </span>{` ${participant.survivor}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Organization: 
-                </span>{participant.organization}
+                </span>{` ${participant.organization}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Id: 
-                </span>{participant.id}
+                </span>{` ${participant.id}`}
             </p>
             <p className='participant__details'>
                 <span className='participant__name'>
                     Shirt Size: 
-                </span>{participant.shirtSize}
+                </span>{` ${participant.shirtSize}`}
                 </p>
             <Link 
                 to={`/admin/participants/${participant.id}`}
