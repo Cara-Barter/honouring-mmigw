@@ -47,31 +47,31 @@ will start the server on port 5000.
 
 Homepage features information about the event, the art that the site was designed around, a countdown timer using react-countdown, and a picture collage that I designed with CSS.
 
-![Home Page](./server/public/readme-screens/mmiwg-homepage.png)
+![Home Page](./server/public/readme-screens/mmiwg-homepage.PNG)
 
 Each registration page uses form validation with all of the required fields outlined by the client.
 
-![Registration](./server/public/readme-screens/mmiwg-registration.png)
+![Registration](./server/public/readme-screens/mmiwg-registration.PNG)
 
 As I didn't want the admin side to be visible to the public, the login page can only be accessed by typing 'login' into the browser.
 
-![Login](./server/public/readme-screens/mmiwg-login.png)
+![Login](./server/public/readme-screens/mmiwg-login.PNG)
 
 To access the sample data, type in the username 'boss' and password 'test'.
 
-![Login Example](./server/public/readme-screens/login-example.png)
+![Login Example](./server/public/readme-screens/login-example.PNG)
 
 Options on the admin page include access to each registration list, as well as get details on the t-shirts they will need to order.
 
-![Admin Options](./server/public/readme-screens/admin.png)
+![Admin Options](./server/public/readme-screens/admin.PNG)
 
 On the 'walk participants' list, they can download a csv mailing list to send put registration packages. They can also see details of each participant. The 'food burning' list is also downloadable so they can print it to use in the ceremony.
 
-![Admin List](./server/public/readme-screens/admin-options.png)
+![Admin List](./server/public/readme-screens/admin-options.PNG)
 
 'T-shirts List' gives them a compiled list of how many t-shirts they will need to order in each size.
 
-![Shirts List](./server/public/readme-screens/shirts.png)
+![Shirts List](./server/public/readme-screens/shirts.PNG)
 
 ## Tech Stack
 
