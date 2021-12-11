@@ -16,20 +16,20 @@ LinkedIn: https://www.linkedin.com/in/cara-barter/
 
 In the project directory, run:
 
-## in 'client' folder
+### in 'client' folder
 
-## 'npm install'
+#### 'npm install'
 
 installs dependencies.
 
-### 'npm start'
+#### 'npm start'
 
-will run the project in developer mode.\ 
+will run the project in developer mode.
 Open [http://localhost:3000](http://localhost:3000) to view in the browser. 
 
-##in 'server' folder
+### in 'server' folder
 
-## 'npm install'
+#### 'npm install'
 
 installs dependencies.
 
@@ -37,15 +37,15 @@ create a 'mysql' database named 'mmiwg'.
 
 see .env.example to set up a .env file.
 
-### 'npm run migrate'
+#### 'npm run migrate'
 
 will create tables in your database.
 
-### 'npm run seed'
+#### 'npm run seed'
 
 will create seed data in your tables. 
 
-### 'npm start'
+#### 'npm start'
 
 will start the server on port 5000.
 
