@@ -16,7 +16,7 @@ LinkedIn: https://www.linkedin.com/in/cara-barter/
 
 In the project directory, run:
 
-##in 'client' folder
+## in 'client' folder
 
 ## 'npm install'
 

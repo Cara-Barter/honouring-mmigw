@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
     if (!foundUser) {
     return res.status(401).json({ message: "No user found. Please check username." });
     }
-    console.log('foundUser password', foundUser.password)
+    
     if(foundUser.password === password) {
       // Generate token and send back
       const token = jwt.sign({
