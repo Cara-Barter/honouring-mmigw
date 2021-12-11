@@ -16,31 +16,31 @@ LinkedIn: https://www.linkedin.com/in/cara-barter/
 
 In the project directory, run:
 
-### in 'client' folder
+### in `client` folder
 
-#### 'npm install' 
+#### `npm install` 
 installs dependencies.
 
-#### 'npm start'
+#### `npm start`
 will run the project in developer mode.
 Open [http://localhost:3000](http://localhost:3000) to view in the browser. 
 
-### in 'server' folder
+### in `server` folder
 
-#### 'npm install'
+#### `npm install`
 installs dependencies.
 
-create a 'mysql' database named 'mmiwg'.
+create a **mysql** database named `mmiwg`.
 
-see .env.example to set up a .env file.
+see **.env.example** to set up a .env file.
 
-#### 'npm run migrate'
+#### `npm run migrate`
 will create tables in your database.
 
-#### 'npm run seed'
+#### `npm run seed`
 will create seed data in your tables. 
 
-#### 'npm start'
+#### `npm start`
 will start the server on port 5000.
 
 ## Features
@@ -113,8 +113,8 @@ In future, I will be deploying this. My plan is to seperate the client and serve
 
 The land where I currently work and play is unceded homelands of the Coast Salish Peoples. 
 
-I'd like to thank First Nations Tech Council for the support they have provided me in my educational journey over the past year.  My educational team at BrainStation has been instrumental in my learning. I highly recommend their bootcamp program.
+I'd like to thank **First Nations Tech Council** for the support they have provided me in my educational journey over the past year.  My educational team at **BrainStation** has been instrumental in my learning. I highly recommend their bootcamp program.
 
 ## Support
 
-If you have questions or comments or would like to contribute to the project, please feel free to contact me at the links above. If you like the project and want to see more Indigenous content on the web, please show some love and give it a star.
+If you have questions or comments or would like to contribute to the project, please feel free to contact me at the links above. If you like the project and want to see more Indigenous content on the web, please show some love and give it a star. :star:
