@@ -65,8 +65,8 @@ app.post('/login', (req, res) => {
       name: foundUser.name,
       username: foundUser.username,
       loginTime: Date.now()
-      }, process.env.JWT_SECRET, {expiresIn: '59m'});
-      console.log('env', process.env.JWT_SECRET);
+      }, process.env.JWT_SECRET, {expiresIn: '3h'});
+      console.log('token', token);
       return res.status(200).json({ token });
     } else {
       return res.status(403).json({ message: "Invalid username or password" }); 
