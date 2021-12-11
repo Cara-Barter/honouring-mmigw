@@ -1,6 +1,5 @@
 import './Participant.scss';
 import { Link } from 'react-router-dom';
-// import { CSVLink, CSVDownload } from 'react-csv';
 import Button from '../Button/Button';
 
 function Participant ({participant}) {

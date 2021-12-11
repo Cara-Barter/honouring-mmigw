@@ -59,7 +59,6 @@ router.get('/:id', authorize, (req, res) => {
 
 //create new participant
 router.post('/', (req, res) => {
-    console.log(req.body);
     
     const honourInfo = {
         yourName: req.body.yourName,
@@ -74,7 +73,6 @@ router.post('/', (req, res) => {
   knex('honouring')
     .insert(honourInfo)
     .then((data) => {
-      console.log(data);
       res.status(201).json({
           message: `Honouree ${req.body.lovedOnesName} created successfully with the id ${data}`
       });
@@ -86,7 +84,7 @@ router.post('/', (req, res) => {
     });
 });
 
-// Update a participant
+// Update an honouree
 router.put('/:id', (req, res) => {
     knex('honouring')
       .where({ id: req.params.id })
@@ -105,7 +103,7 @@ router.put('/:id', (req, res) => {
       });
   });
   
-  //Delete a participant
+  //Delete an honouree
   router.delete('/:id', (req, res) => {
     knex('honouring')
       .where({ id: req.params.id })

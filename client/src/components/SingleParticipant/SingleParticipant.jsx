@@ -17,10 +17,9 @@ class SingleParticipant extends Component {
                 }
             })
             .then((response) => {
-                console.log(response.data);
                 this.setState({
                     singleParticipant: response.data.sensitiveInfo[0]
-                }, () => console.log('singleParticipant', this.state.singleParticipant));
+                });
             })
             .catch((error) => console.log(error));
     }

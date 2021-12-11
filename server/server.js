@@ -13,15 +13,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 
-//TODO store users on DB
-const users = [
-    {
-        username: 'Cara',
-        name: 'Cara',
-        password: 'mmiwg'
-    }
-];
-
 const authorize = (req, res, next) => {
     if (!req.headers.authorization) {
       return res.status(401).json({message: 'No token found'})
@@ -41,32 +32,25 @@ const authorize = (req, res, next) => {
 }
 
 app.post('/login', (req, res) => {
-  console.log('in login', req.body);
-  //console.log(req.params)
   //TODO add knex
   knex.from('admin')
     .select('username', 'password')
     .then((data) => {
-      console.log(data);
     const { username, password } = req.body;
-    console.log('username, password', req.body);
     
     const foundUser = data.find(user => user.username === username);
-    console.log('foundUser', foundUser);
 
     if (!foundUser) {
     return res.status(401).json({ message: "No user found. Please check username." });
     }
     console.log('foundUser password', foundUser.password)
     if(foundUser.password === password) {
-      console.log('in found password');
       // Generate token and send back
       const token = jwt.sign({
       name: foundUser.name,
       username: foundUser.username,
       loginTime: Date.now()
       }, process.env.JWT_SECRET, {expiresIn: '3h'});
-      console.log('token', token);
       return res.status(200).json({ token });
     } else {
       return res.status(403).json({ message: "Invalid username or password" }); 

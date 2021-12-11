@@ -21,7 +21,7 @@ const authorize = (req, res, next) => {
   });
 }
 
-/* Get all participants */
+// Get all participants
 router.get('/', authorize, (req, res) => {
     knex('participants as p')
     .innerJoin('extra_info as e', 'e.participant_id', 'p.id')
@@ -42,7 +42,6 @@ router.get('/', authorize, (req, res) => {
 
 //get participants by id
 router.get('/:id', authorize, (req, res) => {
-  console.log(req.payload);
     knex.from('participants as p')
         .innerJoin('extra_info as e', 'e.participant_id', 'p.id')
         .where('p.id', req.params.id)
@@ -115,13 +114,11 @@ router.post('/', (req, res) => {
   knex('participants')
     .insert(participantInfo)
     .then((data) => {
-        //console.log('participant created', data);
         participantId = data[0];
         extraInfo.participant_id = data[0];
         return knex('extra_info')
         .insert(extraInfo)
     }).then((data) => {
-      //console.log('new participant', data[0]);
       res.status(201).json({
           id: participantId,
           message: `Participant ${req.body.firstName} created successfully with the id ${data}`
