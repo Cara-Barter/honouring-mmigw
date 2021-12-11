@@ -47,7 +47,7 @@ will start the server on port 5000.
 
 Homepage features information about the event, the art that the site was designed around, a countdown timer using react-countdown, and a picture collage that I designed with CSS.
 
-![Home Page](./server/public/readme-screens/mmiwg-homepage.PNG)
+![Home Page](./server/public/readme-screens/mmiwg-hompage.PNG)
 
 Each registration page uses form validation with all of the required fields outlined by the client.
 
@@ -55,7 +55,7 @@ Each registration page uses form validation with all of the required fields outl
 
 As I didn't want the admin side to be visible to the public, the login page can only be accessed by typing 'login' into the browser.
 
-![Login](./server/public/readme-screens/mmiwg-login.PNG)
+![Login](./server/public/readme-screens/login.PNG)
 
 To access the sample data, type in the username 'boss' and password 'test'.
 
