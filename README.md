@@ -2,7 +2,7 @@
 
 web application to handle registrations for Tsow Tun Lelum Healing House's events to honour Missing and Murdered Indigenous Women Girls and boys. On the public facing, client side, there is a homepage, and two seperate registration forms. There is also a hidden admin section that staff will need to login to access. There, they can access registrations and information that they will need to manage the event.
 
-##Creator info
+## Creator info
 
 Creator: Cara Barter
 
@@ -18,19 +18,16 @@ In the project directory, run:
 
 ### in 'client' folder
 
-#### 'npm install'
-
+#### 'npm install' 
 installs dependencies.
 
 #### 'npm start'
-
 will run the project in developer mode.
 Open [http://localhost:3000](http://localhost:3000) to view in the browser. 
 
 ### in 'server' folder
 
 #### 'npm install'
-
 installs dependencies.
 
 create a 'mysql' database named 'mmiwg'.
@@ -38,46 +35,43 @@ create a 'mysql' database named 'mmiwg'.
 see .env.example to set up a .env file.
 
 #### 'npm run migrate'
-
 will create tables in your database.
 
 #### 'npm run seed'
-
 will create seed data in your tables. 
 
 #### 'npm start'
-
 will start the server on port 5000.
 
 ## Features
 
 Homepage features information about the event, the art that the site was designed around, a countdown timer using react-countdown, and a picture collage that I designed with CSS.
 
-![Home Page] (./server/public/readme-screens/mmiwg-homepage.png)
+![Home Page](./server/public/readme-screens/mmiwg-homepage.png)
 
 Each registration page uses form validation with all of the required fields outlined by the client.
 
-![Registration] (./server/public/readme-screens/mmiwg-registration.png)
+![Registration](./server/public/readme-screens/mmiwg-registration.png)
 
 As I didn't want the admin side to be visible to the public, the login page can only be accessed by typing 'login' into the browser.
 
-![Login] (./server/public/readme-screens/mmiwg-login.png)
+![Login](./server/public/readme-screens/mmiwg-login.png)
 
 To access the sample data, type in the username 'boss' and password 'test'.
 
-![Login Example] (./server/public/readme-screens/login-example.png)
+![Login Example](./server/public/readme-screens/login-example.png)
 
 Options on the admin page include access to each registration list, as well as get details on the t-shirts they will need to order.
 
-![Admin Options] (./server/public/readme-screens/admin.png)
+![Admin Options](./server/public/readme-screens/admin.png)
 
 On the 'walk participants' list, they can download a csv mailing list to send put registration packages. They can also see details of each participant. The 'food burning' list is also downloadable so they can print it to use in the ceremony.
 
-![Admin List] (./server/public/readme-screens/admin-options.png)
+![Admin List](./server/public/readme-screens/admin-options.png)
 
 'T-shirts List' gives them a compiled list of how many t-shirts they will need to order in each size.
 
-![Shirts List] (./server/public/readme-screens/shirts.png)
+![Shirts List](./server/public/readme-screens/shirts.png)
 
 ## Tech Stack
 
