@@ -1,6 +1,6 @@
 # Honouring Missing and Murdered Indigenous Women Girls and Boys Event Registration
 
-web application to handle registrations for Tsow Tun Lelum Healing House's events to honour Missing and Murdered Indigenous Women Girls and boys. On the public facing, client side, there is a homepage, and two seperate registration forms. There is also a hidden admin section that staff will need to login to access. There, they can access registrations and information that they will need to manage the event.
+Fully responsive for mobile, tablet and desktop. I made this web application to handle registrations for Tsow Tun Lelum Healing House's events to honour Missing and Murdered Indigenous Women Girls and boys. On the public facing, client side, there is a homepage, and two seperate registration forms. There is also a hidden admin section that staff will need to login to access. There, they can access registrations and information that they will need to manage the event.
 
 ## Creator info
 
