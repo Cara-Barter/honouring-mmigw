@@ -12,9 +12,17 @@ GitHub: https://github.com/Cara-Barter
 
 LinkedIn: https://www.linkedin.com/in/cara-barter/
 
+## Acknowledgement
+
+The land where I currently work and play is unceded homelands of the Coast Salish Peoples. 
+
+I'd like to thank **First Nations Tech Council** for the support they have provided me in my educational journey over the past year.  My educational team at **BrainStation** has been instrumental in my learning. I highly recommend their bootcamp program.
+
+I'd also like to thank **Tsow Tun Lelum Society** for the excellent work that they do supporting Indigenous communities.  It was an honour to support the work that you do.
+
 ## Installation
 
-In the project directory, run:
+**In the project directory, run:**
 
 ### in `client` folder
 
@@ -30,7 +38,8 @@ Open [http://localhost:3000](http://localhost:3000) to view in the browser.
 #### `npm install`
 installs dependencies.
 
-create a **mysql** database named `mmiwg`.
+create a **mysql** database schema named `mmiwg`.
+set up your **knexfile.js** with your username and password. 
 
 see **.env.example** to set up a .env file.
 
@@ -100,20 +109,14 @@ Used to communicate on server side.
 Used to communicate with mySQL.
 
 ### [mySQL](https://www.mysql.com/)
-Stores participant and admin data.
+Stores participant and admin data. Note that there are multiple tables, two that handle event registrations, one for honouring ceremony and one for admin users.
 
 ### [JWT](https://jwt.io/)
-Used for admin auth
+Used for admin auth to access database information.
 
 ## Roadmap
 
 In future, I will be deploying this. My plan is to seperate the client and server sides and deploy server with Heroku and client with Netlify.
-
-## Acknowledgement
-
-The land where I currently work and play is unceded homelands of the Coast Salish Peoples. 
-
-I'd like to thank **First Nations Tech Council** for the support they have provided me in my educational journey over the past year.  My educational team at **BrainStation** has been instrumental in my learning. I highly recommend their bootcamp program.
 
 ## Support
 
