@@ -7,7 +7,7 @@ class CountDownTimer extends Component {
     //https://www.npmjs.com/package/react-countdown
   render() {
     return (
-        <Countdown date={Date.now() + 7307976}>
+        <Countdown date={Date.now() + 7043105000}>
           <Completionist />
         </Countdown>
     );
